@@ -22,8 +22,7 @@
     "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
-    "@fontsource/roboto": "^4.5.7",
-    "@nekochans/lgtm-cat-ui": "^0.1.2",
+    "@nekochans/lgtm-cat-ui": "0.3.0",
     "next": "^12.1.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
