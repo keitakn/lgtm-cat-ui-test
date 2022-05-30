@@ -43,7 +43,12 @@ export default class CustomDocument extends Document {
   render(): JSX.Element {
     return (
       <Html prefix="og: https://ogp.me/ns#">
-        <Head />
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

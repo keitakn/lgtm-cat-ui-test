@@ -1,5 +1,4 @@
 import type { AppProps } from 'next/app';
-import '@fontsource/roboto';
 
 const CustomApp = ({ Component, pageProps }: AppProps): JSX.Element => (
   <>
