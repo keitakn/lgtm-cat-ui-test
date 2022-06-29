@@ -45,7 +45,7 @@ export default class CustomDocument extends Document {
       <Html prefix="og: https://ogp.me/ns#">
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Roboto&family=Zen+Kaku+Gothic+New&display=swap"
             rel="stylesheet"
           />
         </Head>
