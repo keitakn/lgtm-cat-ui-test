@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app';
+import 'ress/ress.css';
 
 const CustomApp = ({ Component, pageProps }: AppProps): JSX.Element => (
   <>
