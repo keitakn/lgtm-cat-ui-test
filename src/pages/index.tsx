@@ -1,7 +1,7 @@
-import { LayoutContainer, LgtmImages } from '@nekochans/lgtm-cat-ui';
-import { LgtmImage } from '@nekochans/lgtm-cat-ui/dist/esm/types/types/lgtmImage';
+import { ResponsiveLayoutContainer, LgtmImages } from '@nekochans/lgtm-cat-ui';
 import React from 'react';
 
+import type { LgtmImage } from '@nekochans/lgtm-cat-ui/dist/esm/types/types/lgtmImage';
 import type { NextPage } from 'next';
 
 const images = [
@@ -53,12 +53,9 @@ const images = [
 ] as LgtmImage[];
 
 const IndexPage: NextPage = () => (
-  <LayoutContainer>
-    <h1>ねこ</h1>
-    <h2>かわいいねこ</h2>
-    <p>ねこたくさん</p>
+  <ResponsiveLayoutContainer>
     <LgtmImages images={images} />
-  </LayoutContainer>
+  </ResponsiveLayoutContainer>
 );
 
 export default IndexPage;
