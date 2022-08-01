@@ -53,7 +53,7 @@ const images = [
 ] as LgtmImage[];
 
 const IndexPage: NextPage = () => (
-  <ResponsiveLayoutContainer>
+  <ResponsiveLayoutContainer language="ja">
     <LgtmImages images={images} />
   </ResponsiveLayoutContainer>
 );

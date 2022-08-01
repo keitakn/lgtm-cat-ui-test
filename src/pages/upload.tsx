@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { UploadForm, ResponsiveLayoutContainer } from '@nekochans/lgtm-cat-ui';
+import { UploadTemplate } from '@nekochans/lgtm-cat-ui';
 import { NextPage } from 'next';
 import React from 'react';
 
@@ -46,13 +46,11 @@ const imageUploader = async (
 };
 
 const UploadPage: NextPage = () => (
-  <ResponsiveLayoutContainer>
-    <UploadForm
-      language="ja"
-      imageValidator={imageValidator}
-      imageUploader={imageUploader}
-    />
-  </ResponsiveLayoutContainer>
+  <UploadTemplate
+    language="ja"
+    imageValidator={imageValidator}
+    imageUploader={imageUploader}
+  />
 );
 
 export default UploadPage;
