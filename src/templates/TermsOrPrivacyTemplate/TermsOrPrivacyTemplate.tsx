@@ -3,7 +3,7 @@ import {
   useSwitchLanguage,
 } from '@nekochans/lgtm-cat-ui';
 
-import { MarkdownContents } from '../components/MarkdownContents';
+import { MarkdownContents } from '../../components/MarkdownContents';
 
 import type { FC } from 'react';
 
