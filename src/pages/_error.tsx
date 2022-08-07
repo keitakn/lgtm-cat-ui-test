@@ -1,10 +1,8 @@
-import type { NextPage } from 'next';
-import {ErrorTemplate} from "../templates/ErrorTemplate";
+import { ErrorTemplate } from '../templates/ErrorTemplate';
 
-const CustomError: NextPage = () => {
-  return (
-    <ErrorTemplate type={500} language="ja" />
-  );
-};
+import type { NextPage } from 'next';
+
+// eslint-disable-next-line no-magic-numbers
+const CustomError: NextPage = () => <ErrorTemplate type={500} language="ja" />;
 
 export default CustomError;

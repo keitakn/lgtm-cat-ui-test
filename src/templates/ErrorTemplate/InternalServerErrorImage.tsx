@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import internalServerError from './images/internal_server_error.webp';
 
 export const InternalServerErrorImage = () => (
