@@ -7,4 +7,9 @@ module.exports = {
   compiler: {
     styledComponents: true,
   },
+  i18n: {
+    locales: ['jp-JP', 'en-US'],
+    defaultLocale: 'jp-JP',
+    localeDetection: false,
+  },
 };
