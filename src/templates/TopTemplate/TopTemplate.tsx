@@ -1,6 +1,7 @@
 import {
   TopTemplate as OrgTopTemplate,
   type LgtmImage,
+  Language,
 } from '@nekochans/lgtm-cat-ui';
 import { FC } from 'react';
 
@@ -125,12 +126,13 @@ const fetchNewArrivalCatImagesCallback = () =>
   console.log('fetchNewArrivalCatImagesCallback executed!');
 
 type Props = {
+  language: Language;
   lgtmImages: LgtmImage[];
 };
 
-export const TopTemplate: FC<Props> = ({ lgtmImages }) => (
+export const TopTemplate: FC<Props> = ({ language, lgtmImages }) => (
   <OrgTopTemplate
-    language="ja"
+    language={language}
     lgtmImages={lgtmImages}
     randomCatImagesFetcher={randomCatImagesFetcher}
     newArrivalCatImagesFetcher={newArrivalCatImagesFetcher}
