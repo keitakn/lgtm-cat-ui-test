@@ -1,8 +1,46 @@
-import { ErrorTemplate } from '../templates/ErrorTemplate';
+import NextErrorComponent from 'next/error';
 
-import type { NextPage } from 'next';
+import {
+  httpStatusCode,
+  type HttpStatusCode,
+} from '../constants/httpStatusCode';
+import { convertLocaleToLanguage } from '../features/locale';
+import { ErrorTemplate } from '../templates';
 
-// eslint-disable-next-line no-magic-numbers
-const CustomError: NextPage = () => <ErrorTemplate type={500} language="ja" />;
+import type { Language } from '@nekochans/lgtm-cat-ui';
+import type { NextPage, NextPageContext } from 'next';
 
-export default CustomError;
+type Props = {
+  language: Language;
+  statusCode: HttpStatusCode;
+  err?: Error;
+  hasGetInitialPropsRun?: boolean;
+};
+
+const CustomErrorPage: NextPage<Props> = ({ language }) => (
+  <ErrorTemplate
+    type={httpStatusCode.internalServerError}
+    language={language}
+  />
+);
+
+CustomErrorPage.getInitialProps = async (
+  context: NextPageContext,
+): Promise<Props> => {
+  const errorInitialProps = (await NextErrorComponent.getInitialProps(
+    context,
+  )) as Props;
+
+  const { res, locale } = context;
+
+  errorInitialProps.language = convertLocaleToLanguage(locale);
+  errorInitialProps.hasGetInitialPropsRun = true;
+
+  if (res?.statusCode === httpStatusCode.notFound) {
+    return errorInitialProps;
+  }
+
+  return errorInitialProps;
+};
+
+export default CustomErrorPage;

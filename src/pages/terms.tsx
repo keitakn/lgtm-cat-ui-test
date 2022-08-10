@@ -1,6 +1,7 @@
 import fs from 'fs';
 
-import { TermsOrPrivacyTemplate } from '../templates/TermsOrPrivacyTemplate';
+import { convertLocaleToLanguage } from '../features/locale';
+import { TermsOrPrivacyTemplate } from '../templates';
 
 import type { GetStaticProps, NextPage } from 'next';
 
@@ -19,7 +20,7 @@ const TermsPage: NextPage<Props> = ({ language, termsJa, termsEn }: Props) => (
   />
 );
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const fsPromise = fs.promises;
 
   const termsJa = await fsPromise.readFile(
@@ -36,7 +37,10 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   );
 
-  return { props: { language: 'ja', termsJa, termsEn } };
+  const { locale } = context;
+  const language = convertLocaleToLanguage(locale);
+
+  return { props: { language, termsJa, termsEn } };
 };
 
 export default TermsPage;
