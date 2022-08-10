@@ -1,5 +1,5 @@
 import { convertLocaleToLanguage } from '../features/locale';
-import { TopTemplate } from '../templates/TopTemplate/TopTemplate';
+import { TopTemplate } from '../templates';
 import { imageData } from '../utils/imageData';
 import { extractRandomImages } from '../utils/randomImages';
 
