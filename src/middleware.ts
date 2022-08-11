@@ -8,7 +8,7 @@ export const middleware = (req: NextRequest) => {
   const { nextUrl } = req;
 
   const country = req.geo?.country?.toLowerCase();
-  if (country && country !== 'JP') {
+  if (country && country !== 'jp') {
     nextUrl.pathname = `/en-us${nextUrl.pathname}`;
 
     return NextResponse.rewrite(nextUrl);
