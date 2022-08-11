@@ -1,8 +1,25 @@
-import { NextPage } from 'next';
+import { Language } from '@nekochans/lgtm-cat-ui';
+import { GetStaticProps, NextPage } from 'next';
 
-import { ErrorTemplate } from '../templates/ErrorTemplate';
+import { httpStatusCode } from '../constants/httpStatusCode';
+import { convertLocaleToLanguage } from '../features/locale';
+import { ErrorTemplate } from '../templates';
 
-// eslint-disable-next-line
-const Custom404: NextPage = () => <ErrorTemplate type={404} language="ja" />;
+type Props = {
+  language: Language;
+};
+
+const Custom404: NextPage<Props> = ({ language }) => (
+  <ErrorTemplate type={httpStatusCode.notFound} language={language} />
+);
+
+export const getStaticProps: GetStaticProps = (context) => {
+  const { locale } = context;
+  const language = convertLocaleToLanguage(locale);
+
+  return {
+    props: { language },
+  };
+};
 
 export default Custom404;

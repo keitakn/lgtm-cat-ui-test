@@ -1,9 +1,25 @@
-import { NextPage } from 'next';
-
+import { httpStatusCode } from '../constants/httpStatusCode';
+import { convertLocaleToLanguage } from '../features/locale';
 import { ErrorTemplate } from '../templates';
 
-const MaintenancePage: NextPage = () => (
-  <ErrorTemplate type={503} language="ja" />
+import type { Language } from '@nekochans/lgtm-cat-ui';
+import type { GetStaticProps, NextPage } from 'next';
+
+type Props = {
+  language: Language;
+};
+
+const MaintenancePage: NextPage<Props> = ({ language }) => (
+  <ErrorTemplate type={httpStatusCode.serviceUnavailable} language={language} />
 );
+
+export const getStaticProps: GetStaticProps = (context) => {
+  const { locale } = context;
+  const language = convertLocaleToLanguage(locale);
+
+  return {
+    props: { language },
+  };
+};
 
 export default MaintenancePage;

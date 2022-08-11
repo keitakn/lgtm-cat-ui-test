@@ -1,11 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { UploadTemplate as OrgUploadTemplate } from '@nekochans/lgtm-cat-ui';
+import {
+  UploadTemplate as OrgUploadTemplate,
+  type Language,
+} from '@nekochans/lgtm-cat-ui';
 import Image from 'next/image';
-import React from 'react';
 
 import { createSuccessResult } from '../../features/result';
 
 import cat from './images/cat.webp';
+
+import type { FC } from 'react';
 
 const millisecond = 1000;
 
@@ -51,9 +55,13 @@ const CatImage = () => (
   <Image src={cat.src} width="302px" height="302px" alt="Cat" priority={true} />
 );
 
-export const UploadTemplate = () => (
+type Props = {
+  language: Language;
+};
+
+export const UploadTemplate: FC<Props> = ({ language }) => (
   <OrgUploadTemplate
-    language="ja"
+    language={language}
     imageValidator={imageValidator}
     imageUploader={imageUploader}
     catImage={<CatImage />}
