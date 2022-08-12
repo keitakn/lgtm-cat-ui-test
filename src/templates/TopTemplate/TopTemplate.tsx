@@ -5,6 +5,8 @@ import {
 } from '@nekochans/lgtm-cat-ui';
 import { FC } from 'react';
 
+import { appBaseUrl } from '../../features/url';
+
 // eslint-disable-next-line max-lines-per-function, require-await
 const randomCatImagesFetcher = async () => {
   const lgtmImagesList: LgtmImage[] = [
@@ -111,7 +113,7 @@ const newArrivalCatImagesFetcher = async () => {
   return lgtmImagesList;
 };
 
-const appUrl = 'http://localhost:9999';
+const appUrl = appBaseUrl();
 
 const clipboardMarkdownCallback = () =>
   // eslint-disable-next-line no-console
