@@ -1,5 +1,14 @@
-import { ErrorTemplate as OrgErrorTemplate } from '@nekochans/lgtm-cat-ui';
+import {
+  ErrorTemplate as OrgErrorTemplate,
+  Language,
+} from '@nekochans/lgtm-cat-ui';
 
+import {
+  custom404title,
+  customErrorTitle,
+  metaTagList,
+} from '../../features/metaTag';
+import { ErrorLayout } from '../../layouts';
 import { assertNever } from '../../utils/assertNever';
 
 import { InternalServerErrorImage } from './InternalServerErrorImage';
@@ -32,6 +41,28 @@ const catImage = (type: ErrorType): JSX.Element => {
   }
 };
 
+const pageTitle = (type: ErrorType, language: Language) => {
+  switch (type) {
+    // eslint-disable-next-line no-magic-numbers
+    case 404:
+      return custom404title(language);
+    // eslint-disable-next-line no-magic-numbers
+    case 500:
+      return customErrorTitle(language);
+    // eslint-disable-next-line no-magic-numbers
+    case 503:
+      return metaTagList(language).maintenance.title;
+    default:
+      return assertNever(type);
+  }
+};
+
 export const ErrorTemplate: FC<Props> = ({ type, language }) => (
-  <OrgErrorTemplate type={type} language={language} catImage={catImage(type)} />
+  <ErrorLayout title={pageTitle(type, language)}>
+    <OrgErrorTemplate
+      type={type}
+      language={language}
+      catImage={catImage(type)}
+    />
+  </ErrorLayout>
 );

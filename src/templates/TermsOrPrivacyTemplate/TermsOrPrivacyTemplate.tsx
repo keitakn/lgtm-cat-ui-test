@@ -1,15 +1,18 @@
 import {
   TermsOrPrivacyTemplate as OrgTermsOrPrivacyTemplate,
   useSwitchLanguage,
+  type Language,
 } from '@nekochans/lgtm-cat-ui';
 
-import { MarkdownContents } from '../../components/MarkdownContents';
+import { MarkdownContents } from '../../components';
+import { metaTagList } from '../../features/metaTag';
+import { DefaultLayout } from '../../layouts';
 
 import type { FC } from 'react';
 
 type Props = {
   type: 'terms' | 'privacy';
-  language: 'ja' | 'en';
+  language: Language;
   jaMarkdown: string;
   enMarkdown: string;
 };
@@ -31,17 +34,24 @@ export const TermsOrPrivacyTemplate: FC<Props> = ({
 
   const termsMarkdown = selectedLanguage === 'ja' ? jaMarkdown : enMarkdown;
 
+  const metaTag =
+    type === 'terms'
+      ? metaTagList(language).terms
+      : metaTagList(language).privacy;
+
   return (
-    <OrgTermsOrPrivacyTemplate
-      type={type}
-      language={selectedLanguage}
-      isLanguageMenuDisplayed={isLanguageMenuDisplayed}
-      onClickEn={onClickEn}
-      onClickJa={onClickJa}
-      onClickLanguageButton={onClickLanguageButton}
-      onClickOutSideMenu={onClickOutSideMenu}
-    >
-      <MarkdownContents markdown={termsMarkdown} />
-    </OrgTermsOrPrivacyTemplate>
+    <DefaultLayout metaTag={metaTag}>
+      <OrgTermsOrPrivacyTemplate
+        type={type}
+        language={selectedLanguage}
+        isLanguageMenuDisplayed={isLanguageMenuDisplayed}
+        onClickEn={onClickEn}
+        onClickJa={onClickJa}
+        onClickLanguageButton={onClickLanguageButton}
+        onClickOutSideMenu={onClickOutSideMenu}
+      >
+        <MarkdownContents markdown={termsMarkdown} />
+      </OrgTermsOrPrivacyTemplate>
+    </DefaultLayout>
   );
 };
