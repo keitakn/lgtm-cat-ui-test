@@ -1,6 +1,7 @@
 import {
   TermsOrPrivacyTemplate as OrgTermsOrPrivacyTemplate,
   useSwitchLanguage,
+  type Language,
 } from '@nekochans/lgtm-cat-ui';
 
 import { MarkdownContents } from '../../components/MarkdownContents';
@@ -9,7 +10,7 @@ import type { FC } from 'react';
 
 type Props = {
   type: 'terms' | 'privacy';
-  language: 'ja' | 'en';
+  language: Language;
   jaMarkdown: string;
   enMarkdown: string;
 };
