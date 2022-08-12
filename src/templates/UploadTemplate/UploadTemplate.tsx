@@ -62,7 +62,7 @@ type Props = {
 };
 
 export const UploadTemplate: FC<Props> = ({ language }) => {
-  const metaTag = metaTagList().upload;
+  const metaTag = metaTagList(language).upload;
 
   return (
     <DefaultLayout metaTag={metaTag}>

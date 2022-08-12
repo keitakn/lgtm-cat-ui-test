@@ -135,7 +135,7 @@ type Props = {
 };
 
 export const TopTemplate: FC<Props> = ({ language, lgtmImages }) => {
-  const metaTag = metaTagList().top;
+  const metaTag = metaTagList(language).top;
 
   return (
     <DefaultLayout metaTag={metaTag}>

@@ -35,7 +35,9 @@ export const TermsOrPrivacyTemplate: FC<Props> = ({
   const termsMarkdown = selectedLanguage === 'ja' ? jaMarkdown : enMarkdown;
 
   const metaTag =
-    type === 'terms' ? metaTagList().terms : metaTagList().privacy;
+    type === 'terms'
+      ? metaTagList(language).terms
+      : metaTagList(language).privacy;
 
   return (
     <DefaultLayout metaTag={metaTag}>
