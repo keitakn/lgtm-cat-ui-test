@@ -10,8 +10,27 @@ const appName: AppName = 'LGTMeow';
 
 const defaultTitle = appName;
 
-export const custom404title = `ページが見つかりません | ${appName}`;
-export const customErrorTitle = `エラー | ${appName}`;
+export const custom404title = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return `${defaultTitle} ページが見つかりません`;
+    case 'en':
+      return `${defaultTitle} Page not found`;
+    default:
+      return assertNever(language);
+  }
+};
+
+export const customErrorTitle = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return `${defaultTitle} エラー`;
+    case 'en':
+      return `${defaultTitle} Error`;
+    default:
+      return assertNever(language);
+  }
+};
 
 const uploadPageTitle = (language: Language): string => {
   switch (language) {
