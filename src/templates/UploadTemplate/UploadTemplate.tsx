@@ -5,7 +5,9 @@ import {
 } from '@nekochans/lgtm-cat-ui';
 import Image from 'next/image';
 
+import { metaTagList } from '../../features/metaTag';
 import { createSuccessResult } from '../../features/result';
+import { DefaultLayout } from '../../layouts';
 
 import cat from './images/cat.webp';
 
@@ -59,11 +61,17 @@ type Props = {
   language: Language;
 };
 
-export const UploadTemplate: FC<Props> = ({ language }) => (
-  <OrgUploadTemplate
-    language={language}
-    imageValidator={imageValidator}
-    imageUploader={imageUploader}
-    catImage={<CatImage />}
-  />
-);
+export const UploadTemplate: FC<Props> = ({ language }) => {
+  const metaTag = metaTagList().upload;
+
+  return (
+    <DefaultLayout metaTag={metaTag}>
+      <OrgUploadTemplate
+        language={language}
+        imageValidator={imageValidator}
+        imageUploader={imageUploader}
+        catImage={<CatImage />}
+      />
+    </DefaultLayout>
+  );
+};

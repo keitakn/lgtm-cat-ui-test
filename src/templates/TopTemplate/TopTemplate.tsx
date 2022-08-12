@@ -5,7 +5,9 @@ import {
 } from '@nekochans/lgtm-cat-ui';
 import { FC } from 'react';
 
+import { metaTagList } from '../../features/metaTag';
 import { appBaseUrl } from '../../features/url';
+import { DefaultLayout } from '../../layouts';
 
 // eslint-disable-next-line max-lines-per-function, require-await
 const randomCatImagesFetcher = async () => {
@@ -132,15 +134,21 @@ type Props = {
   lgtmImages: LgtmImage[];
 };
 
-export const TopTemplate: FC<Props> = ({ language, lgtmImages }) => (
-  <OrgTopTemplate
-    language={language}
-    lgtmImages={lgtmImages}
-    randomCatImagesFetcher={randomCatImagesFetcher}
-    newArrivalCatImagesFetcher={newArrivalCatImagesFetcher}
-    appUrl={appUrl}
-    fetchRandomCatImagesCallback={fetchRandomCatImagesCallback}
-    fetchNewArrivalCatImagesCallback={fetchNewArrivalCatImagesCallback}
-    clipboardMarkdownCallback={clipboardMarkdownCallback}
-  />
-);
+export const TopTemplate: FC<Props> = ({ language, lgtmImages }) => {
+  const metaTag = metaTagList().top;
+
+  return (
+    <DefaultLayout metaTag={metaTag}>
+      <OrgTopTemplate
+        language={language}
+        lgtmImages={lgtmImages}
+        randomCatImagesFetcher={randomCatImagesFetcher}
+        newArrivalCatImagesFetcher={newArrivalCatImagesFetcher}
+        appUrl={appUrl}
+        fetchRandomCatImagesCallback={fetchRandomCatImagesCallback}
+        fetchNewArrivalCatImagesCallback={fetchNewArrivalCatImagesCallback}
+        clipboardMarkdownCallback={clipboardMarkdownCallback}
+      />
+    </DefaultLayout>
+  );
+};
