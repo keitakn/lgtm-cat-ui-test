@@ -5,7 +5,7 @@ import {
   customErrorTitle,
   metaTagList,
 } from '../../features/metaTag';
-import { ErrorLayout } from '../../layouts/ErrorLayout';
+import { ErrorLayout } from '../../layouts';
 import { assertNever } from '../../utils/assertNever';
 
 import { InternalServerErrorImage } from './InternalServerErrorImage';
