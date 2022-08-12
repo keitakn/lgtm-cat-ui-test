@@ -4,7 +4,7 @@ import {
   type Language,
 } from '@nekochans/lgtm-cat-ui';
 
-import { MarkdownContents } from '../../components/MarkdownContents';
+import { MarkdownContents } from '../../components';
 
 import type { FC } from 'react';
 
