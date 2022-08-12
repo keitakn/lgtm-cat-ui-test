@@ -4,11 +4,11 @@ import type { MetaTag } from '../features/metaTag';
 import type { FC, ReactNode } from 'react';
 
 type Props = {
-  children: ReactNode;
   metaTag: MetaTag;
+  children: ReactNode;
 };
 
-const DefaultLayout: FC<Props> = ({ children, metaTag }) => (
+export const DefaultLayout: FC<Props> = ({ metaTag, children }) => (
   <>
     <Head>
       <title>{metaTag.title}</title>
@@ -19,5 +19,3 @@ const DefaultLayout: FC<Props> = ({ children, metaTag }) => (
     {children}
   </>
 );
-
-export default DefaultLayout;
