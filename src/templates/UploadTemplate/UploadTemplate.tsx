@@ -7,6 +7,7 @@ import Image from 'next/image';
 
 import { metaTagList } from '../../features/metaTag';
 import { createSuccessResult } from '../../features/result';
+import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
 import { DefaultLayout } from '../../layouts';
 
 import cat from './images/cat.webp';
@@ -64,6 +65,8 @@ type Props = {
 export const UploadTemplate: FC<Props> = ({ language }) => {
   const metaTag = metaTagList(language).upload;
 
+  const { saveSettingLanguage } = useSaveSettingLanguage();
+
   return (
     <DefaultLayout metaTag={metaTag}>
       <OrgUploadTemplate
@@ -71,6 +74,7 @@ export const UploadTemplate: FC<Props> = ({ language }) => {
         imageValidator={imageValidator}
         imageUploader={imageUploader}
         catImage={<CatImage />}
+        changeLanguageCallback={saveSettingLanguage}
       />
     </DefaultLayout>
   );

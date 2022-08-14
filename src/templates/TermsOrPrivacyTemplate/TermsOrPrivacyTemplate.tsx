@@ -6,6 +6,7 @@ import {
 
 import { MarkdownContents } from '../../components';
 import { metaTagList } from '../../features/metaTag';
+import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
 import { DefaultLayout } from '../../layouts';
 
 import type { FC } from 'react';
@@ -23,6 +24,8 @@ export const TermsOrPrivacyTemplate: FC<Props> = ({
   jaMarkdown,
   enMarkdown,
 }) => {
+  const { saveSettingLanguage } = useSaveSettingLanguage();
+
   const {
     isLanguageMenuDisplayed,
     selectedLanguage,
@@ -30,7 +33,7 @@ export const TermsOrPrivacyTemplate: FC<Props> = ({
     onClickJa,
     onClickLanguageButton,
     onClickOutSideMenu,
-  } = useSwitchLanguage(language);
+  } = useSwitchLanguage(language, saveSettingLanguage);
 
   const termsMarkdown = selectedLanguage === 'ja' ? jaMarkdown : enMarkdown;
 
