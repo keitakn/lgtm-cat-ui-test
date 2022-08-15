@@ -7,6 +7,7 @@ import { FC } from 'react';
 
 import { metaTagList } from '../../features/metaTag';
 import { appBaseUrl } from '../../features/url';
+import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
 import { DefaultLayout } from '../../layouts';
 
 // eslint-disable-next-line max-lines-per-function, require-await
@@ -137,6 +138,8 @@ type Props = {
 export const TopTemplate: FC<Props> = ({ language, lgtmImages }) => {
   const metaTag = metaTagList(language).top;
 
+  const { saveSettingLanguage } = useSaveSettingLanguage();
+
   return (
     <DefaultLayout metaTag={metaTag}>
       <OrgTopTemplate
@@ -148,6 +151,7 @@ export const TopTemplate: FC<Props> = ({ language, lgtmImages }) => {
         fetchRandomCatImagesCallback={fetchRandomCatImagesCallback}
         fetchNewArrivalCatImagesCallback={fetchNewArrivalCatImagesCallback}
         clipboardMarkdownCallback={clipboardMarkdownCallback}
+        changeLanguageCallback={saveSettingLanguage}
       />
     </DefaultLayout>
   );

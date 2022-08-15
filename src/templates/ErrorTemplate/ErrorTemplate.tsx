@@ -8,6 +8,7 @@ import {
   customErrorTitle,
   metaTagList,
 } from '../../features/metaTag';
+import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
 import { ErrorLayout } from '../../layouts';
 import { assertNever } from '../../utils/assertNever';
 
@@ -57,12 +58,17 @@ const pageTitle = (type: ErrorType, language: Language) => {
   }
 };
 
-export const ErrorTemplate: FC<Props> = ({ type, language }) => (
-  <ErrorLayout title={pageTitle(type, language)}>
-    <OrgErrorTemplate
-      type={type}
-      language={language}
-      catImage={catImage(type)}
-    />
-  </ErrorLayout>
-);
+export const ErrorTemplate: FC<Props> = ({ type, language }) => {
+  const { saveSettingLanguage } = useSaveSettingLanguage();
+
+  return (
+    <ErrorLayout title={pageTitle(type, language)}>
+      <OrgErrorTemplate
+        type={type}
+        language={language}
+        catImage={catImage(type)}
+        changeLanguageCallback={saveSettingLanguage}
+      />
+    </ErrorLayout>
+  );
+};

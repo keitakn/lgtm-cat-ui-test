@@ -22,8 +22,9 @@
     "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
-    "@nekochans/lgtm-cat-ui": "^0.13.0",
+    "@nekochans/lgtm-cat-ui": "^0.15.1",
     "next": "^12.2.3",
+    "nookies": "^2.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
