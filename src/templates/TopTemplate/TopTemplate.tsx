@@ -3,12 +3,13 @@ import {
   type LgtmImage,
   Language,
 } from '@nekochans/lgtm-cat-ui';
-import { FC } from 'react';
 
 import { metaTagList } from '../../features/metaTag';
 import { appBaseUrl } from '../../features/url';
 import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
 import { DefaultLayout } from '../../layouts';
+
+import type { FC } from 'react';
 
 // eslint-disable-next-line max-lines-per-function, require-await
 const randomCatImagesFetcher = async () => {
