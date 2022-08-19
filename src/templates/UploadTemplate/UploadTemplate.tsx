@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   UploadTemplate as OrgUploadTemplate,
+  createSuccessResult,
   type Language,
   AcceptedTypesImageExtension,
 } from '@nekochans/lgtm-cat-ui';
 import Image from 'next/image';
 
 import { metaTagList } from '../../features/metaTag';
-import { createSuccessResult } from '../../features/result';
 import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
 import { DefaultLayout } from '../../layouts';
 
