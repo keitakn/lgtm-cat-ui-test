@@ -13,8 +13,8 @@ Registration for use shall be completed when the applicant applies for registrat
 The Operator may not approve the application for registration if it determines that the applicant has any of the following reasons, and shall not be obliged to disclose any reasons for such denial.
 
 1. The applicant has provided false information when applying for registration.
-1. If the application is from a person who has violated these Terms of Use
-1. the application is from a person who is an antisocial force, etc. (meaning a crime syndicate, a member of a crime syndicate, a right-wing organization, an antisocial force, or any other person equivalent thereto) 1. if the Operator Team determines that the applicant is an anti-social force, etc. (which means a crime syndicate, organized crime syndicate, right-wing group, anti-social force, or other equivalent), or is involved in any interaction or involvement with anti-social forces, such as cooperation or involvement in the maintenance, operation or management of anti-social forces, etc. through funding or otherwise
+1. If the application is from a person who has violated these Terms of Use.
+1. the application is from a person who is an antisocial force, etc. (meaning a crime syndicate, a member of a crime syndicate, a right-wing organization, an antisocial force, or any other person equivalent thereto) 1. if the Operator Team determines that the applicant is an anti-social force, etc. (which means a crime syndicate, organized crime syndicate, right-wing group, anti-social force, or other equivalent), or is involved in any interaction or involvement with anti-social forces, such as cooperation or involvement in the maintenance, operation or management of anti-social forces, etc. through funding or otherwise.
 1. any other case in which the Management Team determines that the registration for use is inappropriate.
 
 ## Article 3 (Management of Account Registration)
@@ -33,25 +33,25 @@ A user may withdraw from the Service and delete his/her registration as a user b
 
 ## Article 6 (Prohibited Matters)
 
-In using the Service, a user shall not engage in any of the following acts
+In using the Service, a user shall not engage in any of the following acts.
 
-1. Acts that violate laws, ordinances, or public order and morals
-1. Actions related to criminal acts
-1. Acts that destroy or interfere with the functions of the Management Team's server or network
-1. Acts that may interfere with the operation of the Management Team's services
-1. acts of collecting or accumulating personal information about other users
-1. acts of impersonating another user
-1. acts of providing benefits directly or indirectly to antisocial forces in relation to the services of the Management Team
+1. Acts that violate laws, ordinances, or public order and morals.
+1. Actions related to criminal acts.
+1. Acts that destroy or interfere with the functions of the Management Team's server or network.
+1. Acts that may interfere with the operation of the Management Team's services.
+1. acts of collecting or accumulating personal information about other users.
+1. acts of impersonating another user.
+1. acts of providing benefits directly or indirectly to antisocial forces in relation to the services of the Management Team.
 1. Any other acts that the Management Team deems inappropriate.
 
 ## Article 7 (Suspension of the Service, etc.)
 
-The Management Team may suspend or discontinue the Service, in whole or in part, without prior notice to the user, for any of the following reasons
+The Management Team may suspend or discontinue the Service, in whole or in part, without prior notice to the user, for any of the following reasons.
 
-1. When maintenance, inspection, or updating of computer systems related to the Service is performed
-1. When provision of the Service becomes difficult due to force majeure such as earthquakes, lightning, fire, power outages, or natural disasters
-1. When computers or communication lines are stopped due to an accident
-1. In any other cases in which the provision of the Service is deemed difficult by the Management Team
+1. When maintenance, inspection, or updating of computer systems related to the Service is performed.
+1. When provision of the Service becomes difficult due to force majeure such as earthquakes, lightning, fire, power outages, or natural disasters.
+1. When computers or communication lines are stopped due to an accident.
+1. In any other cases in which the provision of the Service is deemed difficult by the Management Team.
 
 The Management Team shall not be liable for any disadvantage or damage incurred by the user or a third party due to the suspension or interruption of the provision of the Service, regardless of the reason.
 
@@ -63,13 +63,13 @@ Except as stipulated in the main text of the preceding paragraph, all copyrights
 
 ## Article 9 (Restriction of Use and Cancellation of Registration)
 
-The Management Team may, without prior notice, restrict a user's use of all or part of the Service or terminate the user's registration as a user in the following cases
+The Management Team may, without prior notice, restrict a user's use of all or part of the Service or terminate the user's registration as a user in the following cases.
 
-1. in case of violation of any of the provisions of these Terms of Use
-1. if any false fact is found in the registration information
-1. if the user has not used the Service for a period of one (1) year or more
-1. if it is found that the user has uploaded content that violates public order and morals (deletion of the subject content)
-1. if it is found that the user has uploaded content that violates copyright (the subject content will be deleted)
+1. in case of violation of any of the provisions of these Terms of Use.
+1. if any false fact is found in the registration information.
+1. if the user has not used the Service for a period of one (1) year or more.
+1. if it is found that the user has uploaded content that violates public order and morals. (deletion of the subject content)
+1. if it is found that the user has uploaded content that violates copyright. (the subject content will be deleted)
 1. in any other cases where the Operator deems the use of the Service to be inappropriate.
 
 The Operator shall not be liable for any damages incurred by users as a result of actions taken by the Operator in accordance with this Article.
