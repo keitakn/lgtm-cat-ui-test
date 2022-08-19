@@ -1,16 +1,8 @@
 import { NextRequest } from 'next/server';
 
+import { isLanguage } from '../features/language';
+
 import type { Language } from '@nekochans/lgtm-cat-ui';
-
-const languages = ['en', 'ja'] as const;
-
-const isLanguage = (value: unknown): value is Language => {
-  if (typeof value !== 'string') {
-    return false;
-  }
-
-  return languages.includes(value as Language);
-};
 
 export const mightExtractLanguage = (
   req: NextRequest,

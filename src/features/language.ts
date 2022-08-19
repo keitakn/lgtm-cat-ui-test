@@ -1,0 +1,11 @@
+import { Language } from '@nekochans/lgtm-cat-ui';
+
+export const languages = ['en', 'ja'] as const;
+
+export const isLanguage = (value: unknown): value is Language => {
+  if (typeof value !== 'string') {
+    return false;
+  }
+
+  return languages.includes(value as Language);
+};
