@@ -15,7 +15,7 @@ The following information will be acquired during registration and use of the se
 
 ## 3. Purpose of collecting and using personal information
 
-The purpose of collecting and using personal information by the Management Team is as follows: 1.
+The purpose of collecting and using personal information by the Management Team is as follows.
 
 1. To provide and operate the Service
 1. To respond to inquiries from users
@@ -31,19 +31,22 @@ In the event of a change in the purpose of use, the Operator shall notify the Us
 
 ## 5. Provision of Personal Information to Third Parties
 
-1. Except in the following cases, the Management Team will not provide personal information to a third party without the prior consent of the user. However, this excludes cases permitted under the Personal Information Protection Law and other laws and regulations.
-1. When it is necessary for the protection of a person's life, body, or property, and it is difficult to obtain the consent of the user.
-1. Cases in which the provision of personal information is especially necessary for improving public health or promoting the sound growth of children, and in which it is difficult to obtain the consent of the individual concerned
-1. when it is necessary to cooperate with a national agency, a local government, or an individual or entity entrusted by either of the former two in executing affairs prescribed by law, and obtaining the consent of the individual is likely to impede the execution of the affairs in question
-1. when the following items are announced or publicized in advance and the management team notifies the Personal Information Protection Committee
-   1. the purpose of use includes provision to a third party
-   1. the data items to be provided to the third party
-   1. the means or method of provision to a third party
-   1. to stop the provision of personal information to third parties upon request of the person in question
-   1. the method of accepting the request of the person in question
-1. notwithstanding the provisions of the preceding paragraph, in the following cases, the party to which the relevant information is provided shall not fall under the category of a third party. 1.
-   1. when the operation team outsources all or part of the handling of personal information within the scope necessary to achieve the purpose of use
-   1. when personal information is provided as a result of the succession of business due to merger or other reasons.
+### 5.1. Except in the following cases, the Management Team will not provide personal information to a third party without the prior consent of the user. However, this excludes cases permitted under the Personal Information Protection Law and other laws and regulations.
+
+- 5.1.1. When it is necessary for the protection of a person's life, body, or property, and it is difficult to obtain the consent of the user.
+- 5.1.2. Cases in which the provision of personal information is especially necessary for improving public health or promoting the sound growth of children, and in which it is difficult to obtain the consent of the individual concerned
+- 5.1.3. when it is necessary to cooperate with a national agency, a local government, or an individual or entity entrusted by either of the former two in executing affairs prescribed by law, and obtaining the consent of the individual is likely to impede the execution of the affairs in question
+- 5.1.4. when the following items are announced or publicized in advance and the management team notifies the Personal Information Protection Committee
+  - 5.1.4.1. the purpose of use includes provision to a third party
+  - 5.1.4.2. the data items to be provided to the third party
+  - 5.1.4.3. the means or method of provision to a third party
+  - 5.1.4.4. to stop the provision of personal information to third parties upon request of the person in question
+  - 5.1.4.5. the method of accepting the request of the person in question
+
+### 5.2. notwithstanding the provisions of the preceding paragraph, in the following cases, the party to which the relevant information is provided shall not fall under the category of a third party
+
+- 5.2.1. when the operation team outsources all or part of the handling of personal information within the scope necessary to achieve the purpose of use
+- 5.2.1. when personal information is provided as a result of the succession of business due to merger or other reasons.
 
 ## 6. Use of Cookies and LocalStorage
 
