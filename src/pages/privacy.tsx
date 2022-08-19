@@ -3,10 +3,11 @@ import fs from 'fs';
 import { convertLocaleToLanguage } from '../features/locale';
 import { TermsOrPrivacyTemplate } from '../templates';
 
+import type { Language } from '@nekochans/lgtm-cat-ui';
 import type { GetStaticProps, NextPage } from 'next';
 
 type Props = {
-  language: 'ja' | 'en';
+  language: Language;
   privacyJa: string;
   privacyEn: string;
 };

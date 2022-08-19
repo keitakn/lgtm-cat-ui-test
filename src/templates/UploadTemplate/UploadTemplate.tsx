@@ -2,6 +2,7 @@
 import {
   UploadTemplate as OrgUploadTemplate,
   type Language,
+  AcceptedTypesImageExtension,
 } from '@nekochans/lgtm-cat-ui';
 import Image from 'next/image';
 
@@ -26,8 +27,6 @@ export const sleep = (
       resolve();
     }, waitSeconds * millisecond);
   });
-
-type AcceptedTypesImageExtension = '.png' | '.jpg' | '.jpeg';
 
 const imageValidator = async (
   image: string,

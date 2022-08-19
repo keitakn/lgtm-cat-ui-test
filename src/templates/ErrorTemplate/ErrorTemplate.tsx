@@ -1,8 +1,10 @@
 import {
   ErrorTemplate as OrgErrorTemplate,
-  Language,
+  type Language,
+  ErrorType,
 } from '@nekochans/lgtm-cat-ui';
 
+import { httpStatusCode } from '../../constants/httpStatusCode';
 import {
   custom404title,
   customErrorTitle,
@@ -18,24 +20,18 @@ import { ServiceUnavailableImage } from './ServiceUnavailableImage';
 
 import type { FC } from 'react';
 
-// eslint-disable-next-line
-type ErrorType = 404 | 500 | 503;
-
 type Props = {
   type: ErrorType;
-  language: 'ja' | 'en';
+  language: Language;
 };
 
 const catImage = (type: ErrorType): JSX.Element => {
   switch (type) {
-    // eslint-disable-next-line no-magic-numbers
-    case 404:
+    case httpStatusCode.notFound:
       return <NotFoundImage />;
-    // eslint-disable-next-line no-magic-numbers
-    case 500:
+    case httpStatusCode.internalServerError:
       return <InternalServerErrorImage />;
-    // eslint-disable-next-line no-magic-numbers
-    case 503:
+    case httpStatusCode.serviceUnavailable:
       return <ServiceUnavailableImage />;
     default:
       return assertNever(type);
@@ -44,14 +40,11 @@ const catImage = (type: ErrorType): JSX.Element => {
 
 const pageTitle = (type: ErrorType, language: Language) => {
   switch (type) {
-    // eslint-disable-next-line no-magic-numbers
-    case 404:
+    case httpStatusCode.notFound:
       return custom404title(language);
-    // eslint-disable-next-line no-magic-numbers
-    case 500:
+    case httpStatusCode.internalServerError:
       return customErrorTitle(language);
-    // eslint-disable-next-line no-magic-numbers
-    case 503:
+    case httpStatusCode.serviceUnavailable:
       return metaTagList(language).maintenance.title;
     default:
       return assertNever(type);
