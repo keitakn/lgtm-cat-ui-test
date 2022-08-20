@@ -1,6 +1,6 @@
 import { assertNever } from '../utils/assertNever';
 
-import type { Language } from '@nekochans/lgtm-cat-ui';
+import type { Language } from './language';
 
 const locales = ['jp-JP', 'en-US'] as const;
 

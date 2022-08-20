@@ -1,8 +1,7 @@
 import {
   TermsOrPrivacyTemplate as OrgTermsOrPrivacyTemplate,
   useSwitchLanguage,
-  type Language,
-  TemplateType,
+  type TemplateType,
 } from '@nekochans/lgtm-cat-ui';
 
 import { MarkdownContents } from '../../components';
@@ -10,6 +9,7 @@ import { metaTagList } from '../../features/metaTag';
 import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
 import { DefaultLayout } from '../../layouts';
 
+import type { Language } from '../../features/language';
 import type { FC } from 'react';
 
 type Props = {

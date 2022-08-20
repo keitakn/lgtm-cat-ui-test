@@ -2,7 +2,7 @@ import { assertNever } from '../utils/assertNever';
 
 import { appUrlList, type AppPathName, AppUrl } from './url';
 
-import type { Language } from '@nekochans/lgtm-cat-ui';
+import type { Language } from './language';
 
 type AppName = 'LGTMeow';
 

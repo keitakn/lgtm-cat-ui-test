@@ -1,6 +1,6 @@
 import { setCookie } from '../utils/cookie';
 
-import type { Language } from '@nekochans/lgtm-cat-ui';
+import type { Language } from '../features/language';
 
 const saveSettingLanguage = (language: Language) => {
   // 有効祈願は約1年間に設定する
