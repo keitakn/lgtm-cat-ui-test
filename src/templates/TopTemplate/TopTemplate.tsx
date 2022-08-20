@@ -1,7 +1,6 @@
 import {
   TopTemplate as OrgTopTemplate,
   type LgtmImage,
-  Language,
 } from '@nekochans/lgtm-cat-ui';
 
 import { metaTagList } from '../../features/metaTag';
@@ -9,6 +8,7 @@ import { appBaseUrl } from '../../features/url';
 import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
 import { DefaultLayout } from '../../layouts';
 
+import type { Language } from '../../features/language';
 import type { FC } from 'react';
 
 // eslint-disable-next-line max-lines-per-function, require-await

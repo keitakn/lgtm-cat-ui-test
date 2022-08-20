@@ -1,7 +1,6 @@
 import {
   ErrorTemplate as OrgErrorTemplate,
-  type Language,
-  ErrorType,
+  type ErrorType,
 } from '@nekochans/lgtm-cat-ui';
 
 import { httpStatusCode } from '../../constants/httpStatusCode';
@@ -18,6 +17,7 @@ import { InternalServerErrorImage } from './InternalServerErrorImage';
 import { NotFoundImage } from './NotFoundImage';
 import { ServiceUnavailableImage } from './ServiceUnavailableImage';
 
+import type { Language } from '../../features/language';
 import type { FC } from 'react';
 
 type Props = {

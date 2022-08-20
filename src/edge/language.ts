@@ -1,8 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { isLanguage } from '../features/language';
-
-import type { Language } from '@nekochans/lgtm-cat-ui';
+import { isLanguage, type Language } from '../features/language';
 
 export const mightExtractLanguage = (
   req: NextRequest,

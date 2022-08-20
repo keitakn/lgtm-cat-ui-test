@@ -7,7 +7,7 @@ import {
 import { convertLocaleToLanguage } from '../features/locale';
 import { ErrorTemplate } from '../templates';
 
-import type { Language } from '@nekochans/lgtm-cat-ui';
+import type { Language } from '../features/language';
 import type { NextPage, NextPageContext } from 'next';
 
 type Props = {
