@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import { LgtmImage } from '@nekochans/lgtm-cat-ui';
+import { LgtmImage } from '../features/lgtmImage';
 
 export const imageData: LgtmImage[] = [
   {
