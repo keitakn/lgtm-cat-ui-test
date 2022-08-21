@@ -1,5 +1,5 @@
 /* eslint-disable no-magic-numbers, id-length */
-import { LgtmImage } from '@nekochans/lgtm-cat-ui';
+import { LgtmImage } from '../features/lgtmImage';
 
 export const extractRandomImages = (
   arr: LgtmImage[],

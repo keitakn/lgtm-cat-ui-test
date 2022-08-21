@@ -4,7 +4,7 @@ import { imageData } from '../utils/imageData';
 import { extractRandomImages } from '../utils/randomImages';
 
 import type { Language } from '../features/language';
-import type { LgtmImage } from '@nekochans/lgtm-cat-ui';
+import type { LgtmImage } from '../features/lgtmImage';
 import type { GetStaticProps, NextPage } from 'next';
 
 type Props = {

@@ -2,7 +2,6 @@
 import {
   UploadTemplate as OrgUploadTemplate,
   createSuccessResult,
-  type AcceptedTypesImageExtension,
 } from '@nekochans/lgtm-cat-ui';
 import Image from 'next/image';
 
@@ -13,6 +12,7 @@ import { DefaultLayout } from '../../layouts';
 import cat from './images/cat.webp';
 
 import type { Language } from '../../features/language';
+import type { AcceptedTypesImageExtension } from '../../features/lgtmImage';
 import type { FC } from 'react';
 
 const millisecond = 1000;
