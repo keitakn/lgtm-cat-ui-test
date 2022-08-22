@@ -2,7 +2,7 @@ import { assertNever } from '../utils/assertNever';
 
 import type { Language } from './language';
 
-const locales = ['jp-JP', 'en-US'] as const;
+const locales = ['ja-JP', 'en-US'] as const;
 
 export type Locale = typeof locales[number];
 
@@ -17,7 +17,7 @@ const isLocale = (value: unknown): value is Locale => {
 export const convertLocaleToLanguage = (locale: unknown): Language => {
   if (isLocale(locale)) {
     switch (locale) {
-      case 'jp-JP':
+      case 'ja-JP':
         return 'ja';
       case 'en-US':
         return 'en';
