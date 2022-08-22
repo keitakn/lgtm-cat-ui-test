@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { mightExtractLanguage } from './edge/language';
+import {
+  mightExtractLocaleFromAcceptLanguage,
+  mightExtractLocaleFromCookie,
+  mightExtractLocaleFromGeo,
+} from './edge/locale';
 
 export const config = {
   matcher: ['/', '/upload', '/terms', '/privacy', '/maintenance'],
@@ -10,25 +14,27 @@ export const config = {
 export const middleware = (req: NextRequest) => {
   const { nextUrl } = req;
 
-  const language = mightExtractLanguage(req);
-  if (language && language !== 'ja') {
-    nextUrl.pathname = `/en-us${nextUrl.pathname}`;
+  const localeExtractedFromCookie = mightExtractLocaleFromCookie(req);
+  if (localeExtractedFromCookie === 'en-US') {
+    nextUrl.pathname = `/${localeExtractedFromCookie}${nextUrl.pathname}`;
 
     return NextResponse.rewrite(nextUrl);
   }
 
-  const country = req.geo?.country?.toLowerCase();
-  if (country && country !== 'jp') {
-    nextUrl.pathname = `/en-us${nextUrl.pathname}`;
+  const localeExtractedFromGeo = mightExtractLocaleFromGeo(req);
+  if (localeExtractedFromGeo === 'en-US') {
+    nextUrl.pathname = `/${localeExtractedFromGeo}${nextUrl.pathname}`;
 
     return NextResponse.rewrite(nextUrl);
   }
 
-  // eslint-disable-next-line no-magic-numbers
-  const locale = req.headers.get('accept-language')?.split(',')?.[0];
-  if (locale && locale !== 'ja') {
-    nextUrl.pathname = `/en-us${nextUrl.pathname}`;
+  const localeExtractedFromAcceptLanguage =
+    mightExtractLocaleFromAcceptLanguage(req);
+  if (localeExtractedFromAcceptLanguage === 'en-US') {
+    nextUrl.pathname = `/${localeExtractedFromAcceptLanguage}${nextUrl.pathname}`;
+
+    return NextResponse.rewrite(nextUrl);
   }
 
-  return NextResponse.rewrite(nextUrl);
+  return NextResponse.next();
 };
