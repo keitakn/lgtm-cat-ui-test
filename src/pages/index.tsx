@@ -1,5 +1,5 @@
-import { issueAccessTokenOnServer } from '../api/authToken';
-import { fetchLgtmImagesInRandom } from '../api/lgtmImage';
+import { issueAccessTokenOnServer } from '../api/fetch/authToken';
+import { fetchLgtmImagesInRandom } from '../api/fetch/lgtmImage';
 import { convertLocaleToLanguage } from '../features/locale';
 import { TopTemplate } from '../templates';
 import { imageData } from '../utils/imageData';

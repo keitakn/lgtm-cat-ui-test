@@ -1,6 +1,6 @@
-import { FetchLgtmImagesError } from '../features/errors/FetchLgtmImagesError';
-import { FetchLgtmImages, isLgtmImages } from '../features/lgtmImage';
-import { fetchLgtmImagesUrl } from '../features/url';
+import { FetchLgtmImagesError } from '../../features/errors/FetchLgtmImagesError';
+import { FetchLgtmImages, isLgtmImages } from '../../features/lgtmImage';
+import { fetchLgtmImagesUrl } from '../../features/url';
 
 type FetchImageResponseBody = {
   lgtmImages: {
