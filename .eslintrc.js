@@ -37,6 +37,8 @@ module.exports = {
   ],
   root: true,
   rules: {
+    'multiline-comment-style': 'off',
+    'capitalized-comments': 'off',
     // occur error in `import React from 'react'` with react-scripts 4.0.1
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
