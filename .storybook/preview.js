@@ -1,4 +1,7 @@
 import 'ress/ress.css';
+import { initialize, mswDecorator } from 'msw-storybook-addon';
+
+initialize();
 
 const customViewports = {
   iPhone12: {
@@ -34,3 +37,5 @@ export const parameters = {
   },
   viewport: { viewports: customViewports },
 };
+
+export const decorators = [mswDecorator];

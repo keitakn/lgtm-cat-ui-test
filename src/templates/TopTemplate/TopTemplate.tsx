@@ -5,64 +5,12 @@ import {
 
 import { metaTagList } from '../../features/metaTag';
 import { appBaseUrl } from '../../features/url';
+import { useCatImagesFetcher } from '../../hooks/useCatImagesFetcher';
 import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
 import { DefaultLayout } from '../../layouts';
 
 import type { Language } from '../../features/language';
 import type { FC } from 'react';
-
-// eslint-disable-next-line max-lines-per-function, require-await
-const randomCatImagesFetcher = async () => {
-  const lgtmImagesList: LgtmImage[] = [
-    {
-      id: 11,
-      imageUrl:
-        'https://lgtm-images.lgtmeow.com/2021/03/16/23/5947f291-a46e-453c-a230-0d756d7174cb.webp',
-    } as const,
-    {
-      id: 12,
-      imageUrl:
-        'https://lgtm-images.lgtmeow.com/2021/11/16/22/8dc0dfd0-bb86-4d03-ad1d-e541c1a5d3ec.webp',
-    } as const,
-    {
-      id: 13,
-      imageUrl:
-        'https://lgtm-images.lgtmeow.com/2021/11/16/22/93646290-d9cd-41e7-a136-8942ebf6bc12.webp',
-    } as const,
-    {
-      id: 14,
-      imageUrl:
-        'https://lgtm-images.lgtmeow.com/2021/11/16/22/b459c655-dabd-4423-b437-362bb8b68471.webp',
-    } as const,
-    {
-      id: 15,
-      imageUrl:
-        'https://lgtm-images.lgtmeow.com/2021/11/16/22/d462b567-7427-422a-a860-762b5296ab5a.webp',
-    } as const,
-    {
-      id: 16,
-      imageUrl:
-        'https://lgtm-images.lgtmeow.com/2021/11/16/22/dba3ed18-1664-4d09-b20a-0a5033b6e93f.webp',
-    } as const,
-    {
-      id: 17,
-      imageUrl:
-        'https://lgtm-images.lgtmeow.com/2021/11/16/22/fe780d70-9f04-4a41-a840-cdd990fb75b3.webp',
-    } as const,
-    {
-      id: 18,
-      imageUrl:
-        'https://lgtm-images.lgtmeow.com/2022/04/16/22/e3968a00-d190-412f-8a27-5acd54feff12.webp',
-    } as const,
-    {
-      id: 19,
-      imageUrl:
-        'https://lgtm-images.lgtmeow.com/2022/06/22/11/56ddad8e-08ea-4d28-bd25-7ba11c4ebdc5.webp',
-    } as const,
-  ];
-
-  return lgtmImagesList;
-};
 
 // eslint-disable-next-line max-lines-per-function, require-await
 const newArrivalCatImagesFetcher = async () => {
@@ -140,6 +88,8 @@ export const TopTemplate: FC<Props> = ({ language, lgtmImages }) => {
   const metaTag = metaTagList(language).top;
 
   const { saveSettingLanguage } = useSaveSettingLanguage();
+
+  const { randomCatImagesFetcher } = useCatImagesFetcher();
 
   return (
     <DefaultLayout metaTag={metaTag}>
