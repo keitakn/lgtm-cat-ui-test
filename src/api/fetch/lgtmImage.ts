@@ -1,6 +1,15 @@
 import { FetchLgtmImagesError } from '../../features/errors/FetchLgtmImagesError';
-import { FetchLgtmImages, isLgtmImages } from '../../features/lgtmImage';
-import { fetchLgtmImagesUrl } from '../../features/url';
+import {
+  isLgtmImages,
+  type FetchLgtmImages,
+  FetchLgtmImagesDto,
+  LgtmImage,
+} from '../../features/lgtmImage';
+import {
+  fetchLgtmImagesUrl,
+  fetchLgtmImagesInRecentlyCreatedUrl,
+  type Url,
+} from '../../features/url';
 
 type FetchImageResponseBody = {
   lgtmImages: {
@@ -40,7 +49,10 @@ const isFetchImageResponseBody = (
   return false;
 };
 
-export const fetchLgtmImagesInRandom: FetchLgtmImages = async (dto) => {
+const fetchLgtmImages = async (
+  dto: FetchLgtmImagesDto,
+  fetchUrl: Url,
+): Promise<LgtmImage[]> => {
   const options: RequestInit = {
     method: 'GET',
     mode: 'cors',
@@ -50,7 +62,7 @@ export const fetchLgtmImagesInRandom: FetchLgtmImages = async (dto) => {
     },
   };
 
-  const response = await fetch(fetchLgtmImagesUrl(), options);
+  const response = await fetch(fetchUrl, options);
   if (!response.ok) {
     throw new FetchLgtmImagesError(response.statusText);
   }
@@ -67,5 +79,13 @@ export const fetchLgtmImagesInRandom: FetchLgtmImages = async (dto) => {
     }
   }
 
-  throw new FetchLgtmImagesError();
+  throw new FetchLgtmImagesError('ResponseBody is not expected');
 };
+
+// eslint-disable-next-line require-await
+export const fetchLgtmImagesInRandom: FetchLgtmImages = async (dto) =>
+  fetchLgtmImages(dto, fetchLgtmImagesUrl());
+
+// eslint-disable-next-line require-await
+export const fetchLgtmImagesInRecentlyCreated: FetchLgtmImages = async (dto) =>
+  fetchLgtmImages(dto, fetchLgtmImagesInRecentlyCreatedUrl());
