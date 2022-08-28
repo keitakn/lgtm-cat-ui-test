@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import { metaTagList } from '../../features/metaTag';
 import { createSuccessResult } from '../../features/result';
+import { useCatImageValidator } from '../../hooks/useCatImageValidator';
 import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
 import { DefaultLayout } from '../../layouts';
 
@@ -25,18 +26,6 @@ export const sleep = (
       resolve();
     }, waitSeconds * millisecond);
   });
-
-const imageValidator = async (
-  image: string,
-  imageExtension: AcceptedTypesImageExtension,
-) => {
-  await sleep();
-
-  return createSuccessResult({
-    isAcceptableCatImage: true,
-    notAcceptableReason: [],
-  });
-};
 
 const imageUploader = async (
   image: string,
@@ -63,6 +52,8 @@ export const UploadTemplate: FC<Props> = ({ language }) => {
   const metaTag = metaTagList(language).upload;
 
   const { saveSettingLanguage } = useSaveSettingLanguage();
+
+  const { imageValidator } = useCatImageValidator(language);
 
   return (
     <DefaultLayout metaTag={metaTag}>

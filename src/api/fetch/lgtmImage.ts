@@ -1,14 +1,24 @@
+import { httpStatusCode } from '../../constants/httpStatusCode';
 import { FetchLgtmImagesError } from '../../features/errors/FetchLgtmImagesError';
+import { IsAcceptableCatImageError } from '../../features/errors/IsAcceptableCatImageError';
+import { UploadCatImageSizeTooLargeError } from '../../features/errors/UploadCatImageSizeTooLargeError';
 import {
   isLgtmImages,
   type FetchLgtmImages,
   FetchLgtmImagesDto,
   LgtmImage,
+  IsAcceptableCatImage,
+  IsAcceptableCatImageResponse,
 } from '../../features/lgtmImage';
+import {
+  createFailureResult,
+  createSuccessResult,
+} from '../../features/result';
 import {
   fetchLgtmImagesUrl,
   fetchLgtmImagesInRecentlyCreatedUrl,
   type Url,
+  isAcceptableCatImageUrl,
 } from '../../features/url';
 
 type FetchImageResponseBody = {
@@ -89,3 +99,38 @@ export const fetchLgtmImagesInRandom: FetchLgtmImages = async (dto) =>
 // eslint-disable-next-line require-await
 export const fetchLgtmImagesInRecentlyCreated: FetchLgtmImages = async (dto) =>
   fetchLgtmImages(dto, fetchLgtmImagesInRecentlyCreatedUrl());
+
+export const isAcceptableCatImage: IsAcceptableCatImage = async (dto) => {
+  const options: RequestInit = {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    headers: {
+      Authorization: `Bearer ${dto.accessToken.jwtString}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      image: dto.image,
+      imageExtension: dto.imageExtension,
+    }),
+  };
+
+  const response = await fetch(isAcceptableCatImageUrl(), options);
+
+  if (response.status !== httpStatusCode.ok) {
+    if (response.status === httpStatusCode.payloadTooLarge) {
+      return createFailureResult<UploadCatImageSizeTooLargeError>(
+        new UploadCatImageSizeTooLargeError(),
+      );
+    }
+
+    throw new IsAcceptableCatImageError(response.statusText);
+  }
+
+  const isAcceptableCatImageResponse =
+    (await response.json()) as IsAcceptableCatImageResponse;
+
+  return createSuccessResult<IsAcceptableCatImageResponse>(
+    isAcceptableCatImageResponse,
+  );
+};
