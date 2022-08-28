@@ -1,4 +1,7 @@
+import { UploadCatImageSizeTooLargeError } from './errors/UploadCatImageSizeTooLargeError';
+
 import type { AccessToken } from './authToken';
+import type { Result } from './result';
 import type {
   LgtmImage as OrgLgtmImage,
   AcceptedTypesImageExtension as OrgAcceptedTypesImageExtension,
@@ -13,6 +16,30 @@ export type FetchLgtmImagesDto = {
 };
 
 export type FetchLgtmImages = (dto: FetchLgtmImagesDto) => Promise<LgtmImage[]>;
+
+export type IsAcceptableCatImageDto = {
+  accessToken: AccessToken;
+  image: string;
+  imageExtension: AcceptedTypesImageExtension;
+};
+
+export type IsAcceptableCatImageNotAcceptableReason =
+  | 'not an allowed image extension'
+  | 'not moderation image'
+  | 'person face in the image'
+  | 'not cat image'
+  | 'an error has occurred';
+
+export type IsAcceptableCatImageResponse = {
+  isAcceptableCatImage: boolean;
+  notAcceptableReason: IsAcceptableCatImageNotAcceptableReason;
+};
+
+export type IsAcceptableCatImage = (
+  dto: IsAcceptableCatImageDto,
+) => Promise<
+  Result<IsAcceptableCatImageResponse, UploadCatImageSizeTooLargeError>
+>;
 
 export const isLgtmImages = (value: unknown): value is LgtmImage[] => {
   if (Array.isArray(value)) {
