@@ -34,7 +34,7 @@ const mockHandlers = [
 const mockServer = setupServer(...mockHandlers);
 
 // eslint-disable-next-line max-lines-per-function, max-statements
-describe('useCatImageValidator isAcceptableCatImage TestCases', () => {
+describe('useCatImageValidator TestCases', () => {
   beforeAll(() => {
     mockServer.listen();
   });
