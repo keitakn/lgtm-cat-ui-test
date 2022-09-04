@@ -1,6 +1,6 @@
 export type Url = `http://localhost${string}` | `https://${string}`;
 
-const isUrl = (value: unknown): value is Url => {
+export const isUrl = (value: unknown): value is Url => {
   if (typeof value !== 'string') {
     return false;
   }
