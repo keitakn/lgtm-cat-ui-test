@@ -4,16 +4,13 @@ import { UploadCatImageSizeTooLargeError } from '../features/errors/UploadCatIma
 import { UploadCatImageValidationError } from '../features/errors/UploadCatImageValidationError';
 import { createSuccessResult, isFailureResult } from '../features/result';
 
+import {
+  createCatImageSizeTooLargeErrorMessages,
+  createUnexpectedErrorMessages,
+} from './createErrorMessages';
+
 import type { Language } from '../features/language';
 import type { AcceptedTypesImageExtension } from '../features/lgtmImage';
-
-const createCatImageSizeTooLargeErrorMessages = (language: Language) =>
-  language === 'en'
-    ? ['Image size is too large.', 'Please use images under 4MB.']
-    : [
-        '画像サイズが大きすぎます。',
-        'お手数ですが4MB以下の画像を利用して下さい。',
-      ];
 
 const createDisplayErrorMessages = (
   error: Error,
@@ -38,15 +35,7 @@ const createDisplayErrorMessages = (
         ];
   }
 
-  return language === 'en'
-    ? [
-        'An unexpected Error occurred.',
-        'Sorry, please try again after some time has passed.',
-      ]
-    : [
-        '予期せぬエラーが発生しました。',
-        'お手数ですが、しばらく時間が経ってからお試し下さい。',
-      ];
+  return createUnexpectedErrorMessages(language);
 };
 
 const createCatImageUploader =
