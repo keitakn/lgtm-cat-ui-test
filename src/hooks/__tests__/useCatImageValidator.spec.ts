@@ -79,7 +79,7 @@ describe('useCatImageValidator TestCases', () => {
     ${langJa} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ['png, jpg, jpeg の画像のみアップロード出来ます。'] }}
     ${langEn} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ['Sorry, only png, jpg, jpeg images can be uploaded.'] }}
   `(
-    'should result in isAcceptableCatImage being false because not an allowed image extension. language: $language',
+    'should result in isAcceptableCatImage being false, because not an allowed image extension. language: $language',
     async ({ language, image, imageExtension, expected }) => {
       const { imageValidator } = useCatImageValidator(language);
 
@@ -109,7 +109,7 @@ describe('useCatImageValidator TestCases', () => {
     ${langJa} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ['この画像は不適切なものが写っているので利用出来ません。'] }}
     ${langEn} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ['Sorry, This image is not available because it shows something inappropriate.'] }}
   `(
-    'should result in isAcceptableCatImage being false because not moderation image. language: $language',
+    'should result in isAcceptableCatImage being false, because not moderation image. language: $language',
     async ({ language, image, imageExtension, expected }) => {
       const { imageValidator } = useCatImageValidator(language);
 
@@ -139,7 +139,7 @@ describe('useCatImageValidator TestCases', () => {
     ${langJa} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ['申し訳ありませんが人の顔が写っていない画像をご利用ください。'] }}
     ${langEn} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ["Sorry, please use images that do not show people's faces."] }}
   `(
-    'should result in isAcceptableCatImage being false because person face in the image. language: $language',
+    'should result in isAcceptableCatImage being false, because person face in the image. language: $language',
     async ({ language, image, imageExtension, expected }) => {
       const { imageValidator } = useCatImageValidator(language);
 
@@ -169,7 +169,7 @@ describe('useCatImageValidator TestCases', () => {
     ${langJa} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ['申し訳ありませんがはっきりと猫が写っている画像をご利用ください。'] }}
     ${langEn} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ['Sorry, but please use images that clearly show the cat.'] }}
   `(
-    'should result in isAcceptableCatImage being false because not cat image. language: $language',
+    'should result in isAcceptableCatImage being false, because not cat image. language: $language',
     async ({ language, image, imageExtension, expected }) => {
       const { imageValidator } = useCatImageValidator(language);
 
@@ -199,7 +199,7 @@ describe('useCatImageValidator TestCases', () => {
     ${langJa} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ['予期せぬエラーが発生しました。', 'お手数ですが、しばらく時間が経ってからお試し下さい。'] }}
     ${langEn} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ['An unexpected Error occurred.', 'Sorry, please try again after some time has passed.'] }}
   `(
-    'should result in isAcceptableCatImage being false because an error has occurred. language: $language',
+    'should result in isAcceptableCatImage being false, because an error has occurred. language: $language',
     async ({ language, image, imageExtension, expected }) => {
       const { imageValidator } = useCatImageValidator(language);
 
@@ -226,7 +226,7 @@ describe('useCatImageValidator TestCases', () => {
     ${langJa} | ${dummyImage} | ${dummyImageExtension} | ${new IsAcceptableCatImageError('Internal Server Error')}
     ${langEn} | ${dummyImage} | ${dummyImageExtension} | ${new IsAcceptableCatImageError('Internal Server Error')}
   `(
-    'should return an IsAcceptableCatImageError because the API will return internalServer error. language: $language',
+    'should return an IsAcceptableCatImageError, because the API will return internalServer error. language: $language',
     async ({ language, image, imageExtension, expected }) => {
       const { imageValidator } = useCatImageValidator(language);
 
@@ -249,7 +249,7 @@ describe('useCatImageValidator TestCases', () => {
     ${langJa} | ${dummyImage} | ${dummyImageExtension} | ${new IssueAccessTokenError('Internal Server Error')}
     ${langEn} | ${dummyImage} | ${dummyImageExtension} | ${new IssueAccessTokenError('Internal Server Error')}
   `(
-    'should return an IssueAccessTokenError because accessToken issuance failed. language: $language',
+    'should IssueAccessTokenError Throw, because accessToken issuance failed. language: $language',
     async ({ language, image, imageExtension, expected }) => {
       const { imageValidator } = useCatImageValidator(language);
 

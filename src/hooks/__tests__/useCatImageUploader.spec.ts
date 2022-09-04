@@ -119,7 +119,7 @@ describe('useCatImageUploader TestCases', () => {
     ${langJa} | ${dummyImage} | ${dummyImageExtension} | ${new UploadCatImageError('Internal Server Error')}
     ${langEn} | ${dummyImage} | ${dummyImageExtension} | ${new UploadCatImageError('Internal Server Error')}
   `(
-    'should UploadCatImageError be Throw, because an error has occurred. language: $language',
+    'should UploadCatImageError Throw, because an error has occurred. language: $language',
     async ({ language, image, imageExtension, expected }) => {
       const { imageUploader } = useCatImageUploader(language);
 
@@ -142,7 +142,7 @@ describe('useCatImageUploader TestCases', () => {
     ${langJa} | ${dummyImage} | ${dummyImageExtension} | ${new IssueAccessTokenError('Internal Server Error')}
     ${langEn} | ${dummyImage} | ${dummyImageExtension} | ${new IssueAccessTokenError('Internal Server Error')}
   `(
-    'should IssueAccessTokenError be Throw, because accessToken issuance failed. language: $language',
+    'should IssueAccessTokenError Throw, because accessToken issuance failed. language: $language',
     async ({ language, image, imageExtension, expected }) => {
       const { imageUploader } = useCatImageUploader(language);
 
