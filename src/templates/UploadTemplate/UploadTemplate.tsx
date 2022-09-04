@@ -2,9 +2,11 @@ import { UploadTemplate as OrgUploadTemplate } from '@nekochans/lgtm-cat-ui';
 import Image from 'next/image';
 
 import { metaTagList } from '../../features/metaTag';
-import { useCatImageUploader } from '../../hooks/useCatImageUploader';
-import { useCatImageValidator } from '../../hooks/useCatImageValidator';
-import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
+import {
+  useSaveSettingLanguage,
+  useCatImageValidator,
+  useCatImageUploader,
+} from '../../hooks';
 import { DefaultLayout } from '../../layouts';
 
 import cat from './images/cat.webp';

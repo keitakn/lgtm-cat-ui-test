@@ -6,7 +6,7 @@ import {
 
 import { MarkdownContents } from '../../components';
 import { metaTagList } from '../../features/metaTag';
-import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
+import { useSaveSettingLanguage } from '../../hooks';
 import { DefaultLayout } from '../../layouts';
 
 import type { Language } from '../../features/language';

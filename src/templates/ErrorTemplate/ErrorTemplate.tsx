@@ -9,7 +9,7 @@ import {
   customErrorTitle,
   metaTagList,
 } from '../../features/metaTag';
-import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
+import { useSaveSettingLanguage } from '../../hooks';
 import { ErrorLayout } from '../../layouts';
 import { assertNever } from '../../utils/assertNever';
 

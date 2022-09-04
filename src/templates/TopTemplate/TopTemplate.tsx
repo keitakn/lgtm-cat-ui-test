@@ -5,8 +5,7 @@ import {
 
 import { metaTagList } from '../../features/metaTag';
 import { appBaseUrl } from '../../features/url';
-import { useCatImagesFetcher } from '../../hooks/useCatImagesFetcher';
-import { useSaveSettingLanguage } from '../../hooks/useSaveSettingLanguage';
+import { useSaveSettingLanguage, useCatImagesFetcher } from '../../hooks';
 import { DefaultLayout } from '../../layouts';
 
 import type { Language } from '../../features/language';
