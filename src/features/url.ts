@@ -73,13 +73,10 @@ const lgtmeowApiUrl = (): Url => {
   return defaultUrl;
 };
 
-// この関数はサーバーサイドでしか動作しない
 export const uploadCatImageUrl = (): Url => `${lgtmeowApiUrl()}/lgtm-images`;
 
-// この関数はサーバーサイドでしか動作しない
 export const fetchLgtmImagesUrl = (): Url => `${lgtmeowApiUrl()}/lgtm-images`;
 
-// この関数はサーバーサイドでしか動作しない
 export const fetchLgtmImagesInRecentlyCreatedUrl = (): Url =>
   `${lgtmeowApiUrl()}/lgtm-images/recently-created`;
 
