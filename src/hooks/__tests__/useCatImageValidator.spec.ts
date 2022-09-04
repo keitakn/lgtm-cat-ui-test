@@ -20,6 +20,7 @@ import { mockIsAcceptableCatImageError } from '../../mocks/api/external/recognit
 import { mockIsAcceptableCatImageNotAllowedImageExtension } from '../../mocks/api/external/recognition/mockIsAcceptableCatImageNotAllowedImageExtension';
 import { mockIsAcceptableCatImageNotCatImage } from '../../mocks/api/external/recognition/mockIsAcceptableCatImageNotCatImage';
 import { mockIsAcceptableCatImageNotModerationImage } from '../../mocks/api/external/recognition/mockIsAcceptableCatImageNotModerationImage';
+import { mockIsAcceptableCatImagePayloadTooLargeError } from '../../mocks/api/external/recognition/mockIsAcceptableCatImagePayloadTooLargeError';
 import { mockIsAcceptableCatImagePersonFaceInImage } from '../../mocks/api/external/recognition/mockIsAcceptableCatImagePersonFaceInImage';
 import { useCatImageValidator } from '../useCatImageValidator';
 
@@ -181,6 +182,36 @@ describe('useCatImageValidator TestCases', () => {
         rest.post(
           isAcceptableCatImageUrl(),
           mockIsAcceptableCatImageNotCatImage,
+        ),
+      );
+
+      const isAcceptableCatImageResult = await imageValidator(
+        image,
+        imageExtension,
+      );
+
+      expect(isSuccessResult(isAcceptableCatImageResult)).toBeTruthy();
+      expect(isAcceptableCatImageResult.value).toStrictEqual(expected);
+    },
+  );
+
+  it.each`
+    language  | image         | imageExtension         | expected
+    ${langJa} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ['画像サイズが大きすぎます。', 'お手数ですが4MB以下の画像を利用して下さい。'] }}
+    ${langEn} | ${dummyImage} | ${dummyImageExtension} | ${{ isAcceptableCatImage: false, notAcceptableReason: ['Image size is too large.', 'Please use images under 4MB.'] }}
+  `(
+    'should result in isAcceptableCatImage being false, because the image is too large. language: $language',
+    async ({ language, image, imageExtension, expected }) => {
+      const { imageValidator } = useCatImageValidator(language);
+
+      mockServer.use(
+        rest.post(
+          `${appBaseUrl()}${apiList.issueClientCredentialsAccessToken}`,
+          mockTokenEndpoint,
+        ),
+        rest.post(
+          isAcceptableCatImageUrl(),
+          mockIsAcceptableCatImagePayloadTooLargeError,
         ),
       );
 
