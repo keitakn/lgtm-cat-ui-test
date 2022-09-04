@@ -6,6 +6,7 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
 import { FetchLgtmImagesError } from '../../../features/errors/FetchLgtmImagesError';
+import { IssueAccessTokenError } from '../../../features/errors/IssueAccessTokenError';
 import { fetchLgtmImagesUrl, apiList, appBaseUrl } from '../../../features/url';
 import { mockInternalServerError } from '../../../mocks/api/error/mockInternalServerError';
 import { mockTokenEndpoint } from '../../../mocks/api/external/cognito/mockTokenEndpoint';
@@ -48,7 +49,7 @@ describe('useCatImagesFetcher.ts randomCatImagesFetcher TestCases', () => {
     expect(lgtmImages).toStrictEqual(expected);
   });
 
-  it('should return an FetchLgtmImagesError because accessToken issuance failed', async () => {
+  it('should IssueAccessTokenError Throw, because accessToken issuance failed', async () => {
     mockServer.use(
       rest.post(
         `${appBaseUrl()}${apiList.issueClientCredentialsAccessToken}`,
@@ -58,10 +59,10 @@ describe('useCatImagesFetcher.ts randomCatImagesFetcher TestCases', () => {
 
     await expect(
       useCatImagesFetcher().randomCatImagesFetcher(),
-    ).rejects.toStrictEqual(new FetchLgtmImagesError('Internal Server Error'));
+    ).rejects.toStrictEqual(new IssueAccessTokenError('Internal Server Error'));
   });
 
-  it('should throw a FetchLgtmImagesError because Failed to fetch LGTM Images', async () => {
+  it('should FetchLgtmImagesError Throw, because Failed to fetch LGTM Images', async () => {
     mockServer.use(
       rest.post(
         `${appBaseUrl()}${apiList.issueClientCredentialsAccessToken}`,

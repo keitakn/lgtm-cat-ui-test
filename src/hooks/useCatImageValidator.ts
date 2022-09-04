@@ -8,6 +8,11 @@ import {
 import { createSuccessResult, isFailureResult } from '../features/result';
 import { assertNever } from '../utils/assertNever';
 
+import {
+  createCatImageSizeTooLargeErrorMessages,
+  createUnexpectedErrorMessages,
+} from './createErrorMessages';
+
 const createNotAcceptableReasons = (
   notAcceptableReason: IsAcceptableCatImageNotAcceptableReason,
   language: Language,
@@ -32,27 +37,11 @@ const createNotAcceptableReasons = (
         ? ['Sorry, but please use images that clearly show the cat.']
         : ['申し訳ありませんがはっきりと猫が写っている画像をご利用ください。'];
     case 'an error has occurred':
-      return language === 'en'
-        ? [
-            'An unexpected Error occurred.',
-            'Sorry, please try again after some time has passed.',
-          ]
-        : [
-            '予期せぬエラーが発生しました。',
-            'お手数ですが、しばらく時間が経ってからお試し下さい。',
-          ];
+      return createUnexpectedErrorMessages(language);
     default:
       return assertNever(notAcceptableReason);
   }
 };
-
-const createCatImageSizeTooLargeErrorMessages = (language: Language) =>
-  language === 'en'
-    ? ['Image size is too large. ', 'Please use images under 4MB.']
-    : [
-        '画像サイズが大きすぎます。',
-        'お手数ですが4MB以下の画像を利用して下さい。',
-      ];
 
 const createImageValidator =
   (language: Language) =>

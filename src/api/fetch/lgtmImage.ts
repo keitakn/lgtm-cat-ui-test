@@ -1,7 +1,11 @@
+import { LgtmImageUrl } from '@nekochans/lgtm-cat-ui';
+
 import { httpStatusCode } from '../../constants/httpStatusCode';
 import { FetchLgtmImagesError } from '../../features/errors/FetchLgtmImagesError';
 import { IsAcceptableCatImageError } from '../../features/errors/IsAcceptableCatImageError';
+import { UploadCatImageError } from '../../features/errors/UploadCatImageError';
 import { UploadCatImageSizeTooLargeError } from '../../features/errors/UploadCatImageSizeTooLargeError';
+import { UploadCatImageValidationError } from '../../features/errors/UploadCatImageValidationError';
 import {
   isLgtmImages,
   type FetchLgtmImages,
@@ -9,6 +13,7 @@ import {
   LgtmImage,
   IsAcceptableCatImage,
   IsAcceptableCatImageResponse,
+  UploadCatImage,
 } from '../../features/lgtmImage';
 import {
   createFailureResult,
@@ -19,6 +24,8 @@ import {
   fetchLgtmImagesInRecentlyCreatedUrl,
   type Url,
   isAcceptableCatImageUrl,
+  uploadCatImageUrl,
+  isUrl,
 } from '../../features/url';
 
 type FetchImageResponseBody = {
@@ -133,4 +140,68 @@ export const isAcceptableCatImage: IsAcceptableCatImage = async (dto) => {
   return createSuccessResult<IsAcceptableCatImageResponse>(
     isAcceptableCatImageResponse,
   );
+};
+
+type UploadCatImageResponseBody = {
+  imageUrl: LgtmImageUrl;
+};
+
+const isUploadCatImageResponseBody = (
+  value: unknown,
+): value is UploadCatImageResponseBody => {
+  if (Object.prototype.toString.call(value) !== '[object Object]') {
+    return false;
+  }
+
+  const uploadCatImageResponseBody = value as UploadCatImageResponseBody;
+  if (!Object.hasOwn(uploadCatImageResponseBody, 'imageUrl')) {
+    return false;
+  }
+
+  return isUrl(uploadCatImageResponseBody.imageUrl);
+};
+
+export const uploadCatImage: UploadCatImage = async (dto) => {
+  const options: RequestInit = {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    headers: {
+      Authorization: `Bearer ${dto.accessToken.jwtString}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      image: dto.image,
+      imageExtension: dto.imageExtension,
+    }),
+  };
+
+  const response = await fetch(uploadCatImageUrl(), options);
+
+  if (response.status !== httpStatusCode.accepted) {
+    switch (response.status) {
+      case httpStatusCode.payloadTooLarge:
+        return createFailureResult<UploadCatImageSizeTooLargeError>(
+          new UploadCatImageSizeTooLargeError(),
+        );
+      case httpStatusCode.unprocessableEntity:
+        return createFailureResult<UploadCatImageValidationError>(
+          new UploadCatImageValidationError(),
+        );
+      default:
+        // TODO ここに入ったらSentryに通知を行う
+        throw new UploadCatImageError(response.statusText);
+    }
+  }
+
+  const uploadCatImageResponseBody = await response.json();
+
+  if (isUploadCatImageResponseBody(uploadCatImageResponseBody)) {
+    return createSuccessResult({
+      createdLgtmImageUrl: uploadCatImageResponseBody.imageUrl,
+    });
+  }
+
+  // TODO ここに入ったらSentryに通知を行う
+  throw new UploadCatImageError(response.statusText);
 };

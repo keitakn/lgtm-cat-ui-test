@@ -1,10 +1,13 @@
+import { UploadCatImageError } from './errors/UploadCatImageError';
 import { UploadCatImageSizeTooLargeError } from './errors/UploadCatImageSizeTooLargeError';
+import { UploadCatImageValidationError } from './errors/UploadCatImageValidationError';
 
 import type { AccessToken } from './authToken';
 import type { Result } from './result';
 import type {
   LgtmImage as OrgLgtmImage,
   AcceptedTypesImageExtension as OrgAcceptedTypesImageExtension,
+  LgtmImageUrl as OrgLgtmImageUrl,
 } from '@nekochans/lgtm-cat-ui';
 
 export type LgtmImage = OrgLgtmImage;
@@ -39,6 +42,25 @@ export type IsAcceptableCatImage = (
   dto: IsAcceptableCatImageDto,
 ) => Promise<
   Result<IsAcceptableCatImageResponse, UploadCatImageSizeTooLargeError>
+>;
+
+export type LgtmImageUrl = OrgLgtmImageUrl;
+
+type UploadedImage = {
+  createdLgtmImageUrl: LgtmImageUrl;
+};
+
+export type UploadCatImageDto = IsAcceptableCatImageDto;
+
+export type UploadCatImage = (
+  request: UploadCatImageDto,
+) => Promise<
+  Result<
+    UploadedImage,
+    | UploadCatImageSizeTooLargeError
+    | UploadCatImageValidationError
+    | UploadCatImageError
+  >
 >;
 
 export const isLgtmImages = (value: unknown): value is LgtmImage[] => {
