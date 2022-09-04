@@ -9,7 +9,7 @@ import type { AcceptedTypesImageExtension } from '../features/lgtmImage';
 
 const createCatImageSizeTooLargeErrorMessages = (language: Language) =>
   language === 'en'
-    ? ['Image size is too large. ', 'Please use images under 4MB.']
+    ? ['Image size is too large.', 'Please use images under 4MB.']
     : [
         '画像サイズが大きすぎます。',
         'お手数ですが4MB以下の画像を利用して下さい。',
@@ -19,11 +19,17 @@ const createDisplayErrorMessages = (
   error: Error,
   language: Language,
 ): string[] => {
-  if (error instanceof UploadCatImageSizeTooLargeError) {
+  if (
+    error instanceof UploadCatImageSizeTooLargeError ||
+    error.name === 'UploadCatImageSizeTooLargeError'
+  ) {
     return createCatImageSizeTooLargeErrorMessages(language);
   }
 
-  if (error instanceof UploadCatImageValidationError) {
+  if (
+    error instanceof UploadCatImageValidationError ||
+    error.name === 'UploadCatImageValidationError'
+  ) {
     return language === 'en'
       ? ['Invalid image format.', 'Sorry, please use another image.']
       : [
