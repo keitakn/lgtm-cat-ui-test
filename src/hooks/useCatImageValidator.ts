@@ -1,12 +1,12 @@
-import { issueAccessToken } from '../api/fetch/authToken';
-import { isAcceptableCatImage } from '../api/fetch/lgtmImage';
-import { Language } from '../features/language';
+import { issueAccessToken, isAcceptableCatImage } from '../api';
 import {
+  createSuccessResult,
+  isFailureResult,
+  type Language,
   AcceptedTypesImageExtension,
   IsAcceptableCatImageNotAcceptableReason,
-} from '../features/lgtmImage';
-import { createSuccessResult, isFailureResult } from '../features/result';
-import { assertNever } from '../utils/assertNever';
+} from '../features';
+import { assertNever } from '../utils';
 
 import {
   createCatImageSizeTooLargeErrorMessages,

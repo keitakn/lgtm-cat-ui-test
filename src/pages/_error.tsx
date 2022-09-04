@@ -4,10 +4,9 @@ import {
   httpStatusCode,
   type HttpStatusCode,
 } from '../constants/httpStatusCode';
-import { convertLocaleToLanguage } from '../features/locale';
+import { convertLocaleToLanguage, type Language } from '../features';
 import { ErrorTemplate } from '../templates';
 
-import type { Language } from '../features/language';
 import type { NextPage, NextPageContext } from 'next';
 
 type Props = {

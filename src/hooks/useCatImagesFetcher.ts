@@ -1,10 +1,10 @@
-import { issueAccessToken } from '../api/fetch/authToken';
 import {
+  issueAccessToken,
   fetchLgtmImagesInRandom,
   fetchLgtmImagesInRecentlyCreated,
-} from '../api/fetch/lgtmImage';
+} from '../api';
 
-import type { LgtmImage } from '../features/lgtmImage';
+import type { LgtmImage } from '../features';
 
 const randomCatImagesFetcher = async (): Promise<LgtmImage[]> => {
   const accessToken = await issueAccessToken();

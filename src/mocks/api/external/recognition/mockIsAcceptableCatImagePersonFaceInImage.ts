@@ -1,6 +1,6 @@
 import { ResponseResolver, MockedRequest, restContext } from 'msw';
 
-import { httpStatusCode } from '../../../../constants/httpStatusCode';
+import { httpStatusCode } from '../../../../constants';
 
 export const mockIsAcceptableCatImagePersonFaceInImage: ResponseResolver<
   MockedRequest,

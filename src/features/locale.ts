@@ -1,4 +1,4 @@
-import { assertNever } from '../utils/assertNever';
+import { assertNever } from '../utils';
 
 import type { Language } from './language';
 

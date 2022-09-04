@@ -1,12 +1,14 @@
 import { issueAccessTokenOnServer } from '../api/fetch/authToken';
 import { fetchLgtmImagesInRandom } from '../api/fetch/lgtmImage';
-import { convertLocaleToLanguage } from '../features/locale';
+import {
+  convertLocaleToLanguage,
+  extractRandomImages,
+  imageData,
+  type Language,
+  LgtmImage,
+} from '../features';
 import { TopTemplate } from '../templates';
-import { imageData } from '../utils/imageData';
-import { extractRandomImages } from '../utils/randomImages';
 
-import type { Language } from '../features/language';
-import type { LgtmImage } from '../features/lgtmImage';
 import type { GetStaticProps, NextPage } from 'next';
 
 type Props = {

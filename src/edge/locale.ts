@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import type { Locale } from '../features/locale';
+import type { Locale } from '../features';
 
 export const mightExtractLocaleFromCookie = (
   req: NextRequest,

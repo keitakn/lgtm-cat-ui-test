@@ -1,16 +1,17 @@
-import { issueAccessToken } from '../api/fetch/authToken';
-import { uploadCatImage } from '../api/fetch/lgtmImage';
-import { UploadCatImageSizeTooLargeError } from '../features/errors/UploadCatImageSizeTooLargeError';
-import { UploadCatImageValidationError } from '../features/errors/UploadCatImageValidationError';
-import { createSuccessResult, isFailureResult } from '../features/result';
+import { issueAccessToken, uploadCatImage } from '../api';
+import {
+  UploadCatImageSizeTooLargeError,
+  UploadCatImageValidationError,
+  createSuccessResult,
+  isFailureResult,
+  type Language,
+  AcceptedTypesImageExtension,
+} from '../features';
 
 import {
   createCatImageSizeTooLargeErrorMessages,
   createUnexpectedErrorMessages,
 } from './createErrorMessages';
-
-import type { Language } from '../features/language';
-import type { AcceptedTypesImageExtension } from '../features/lgtmImage';
 
 const createDisplayErrorMessages = (
   error: Error,

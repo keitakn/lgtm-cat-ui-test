@@ -1,7 +1,7 @@
 import { UploadTemplate as OrgUploadTemplate } from '@nekochans/lgtm-cat-ui';
 import Image from 'next/image';
 
-import { metaTagList } from '../../features/metaTag';
+import { metaTagList, type Language } from '../../features';
 import {
   useSaveSettingLanguage,
   useCatImageValidator,
@@ -11,7 +11,6 @@ import { DefaultLayout } from '../../layouts';
 
 import cat from './images/cat.webp';
 
-import type { Language } from '../../features/language';
 import type { FC } from 'react';
 
 const CatImage = () => (
