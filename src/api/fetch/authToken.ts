@@ -1,12 +1,16 @@
-import { httpStatusCode } from '../../constants/httpStatusCode';
-import { cognitoClientId, cognitoClientSecret } from '../../constants/secret';
-import { IssueAccessToken, AccessToken } from '../../features/authToken';
-import { IssueAccessTokenError } from '../../features/errors/IssueAccessTokenError';
 import {
+  httpStatusCode,
+  cognitoClientId,
+  cognitoClientSecret,
+} from '../../constants';
+import {
+  IssueAccessToken,
+  AccessToken,
+  IssueAccessTokenError,
   apiList,
   appBaseUrl,
   cognitoTokenEndpointUrl,
-} from '../../features/url';
+} from '../../features';
 import { CognitoTokenResponseBody } from '../../pages/api/oidc/token';
 
 export const issueAccessToken: IssueAccessToken = async () => {

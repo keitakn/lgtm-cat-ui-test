@@ -4,7 +4,7 @@ import {
   mightExtractLocaleFromAcceptLanguage,
   mightExtractLocaleFromCookie,
   mightExtractLocaleFromGeo,
-} from './edge/locale';
+} from './edge';
 
 export const config = {
   matcher: ['/', '/upload', '/terms', '/privacy', '/maintenance'],

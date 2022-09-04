@@ -3,21 +3,21 @@ import {
   type ErrorType,
 } from '@nekochans/lgtm-cat-ui';
 
-import { httpStatusCode } from '../../constants/httpStatusCode';
+import { httpStatusCode } from '../../constants';
 import {
   custom404title,
   customErrorTitle,
   metaTagList,
-} from '../../features/metaTag';
+  type Language,
+} from '../../features';
 import { useSaveSettingLanguage } from '../../hooks';
 import { ErrorLayout } from '../../layouts';
-import { assertNever } from '../../utils/assertNever';
+import { assertNever } from '../../utils';
 
 import { InternalServerErrorImage } from './InternalServerErrorImage';
 import { NotFoundImage } from './NotFoundImage';
 import { ServiceUnavailableImage } from './ServiceUnavailableImage';
 
-import type { Language } from '../../features/language';
 import type { FC } from 'react';
 
 type Props = {

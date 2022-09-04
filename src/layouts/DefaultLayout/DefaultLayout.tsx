@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import type { MetaTag } from '../../features/metaTag';
+import type { MetaTag } from '../../features';
 import type { FC, ReactNode } from 'react';
 
 type Props = {

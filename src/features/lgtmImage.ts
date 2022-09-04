@@ -1,12 +1,14 @@
-import { UploadCatImageError } from './errors/UploadCatImageError';
-import { UploadCatImageSizeTooLargeError } from './errors/UploadCatImageSizeTooLargeError';
-import { UploadCatImageValidationError } from './errors/UploadCatImageValidationError';
+import {
+  UploadCatImageError,
+  UploadCatImageSizeTooLargeError,
+  UploadCatImageValidationError,
+} from './errors';
 
 import type { AccessToken } from './authToken';
 import type { Result } from './result';
 import type {
-  LgtmImage as OrgLgtmImage,
   AcceptedTypesImageExtension as OrgAcceptedTypesImageExtension,
+  LgtmImage as OrgLgtmImage,
   LgtmImageUrl as OrgLgtmImageUrl,
 } from '@nekochans/lgtm-cat-ui';
 
@@ -79,4 +81,23 @@ export const isLgtmImages = (value: unknown): value is LgtmImage[] => {
   }
 
   return false;
+};
+
+// APIに障害が発生している場合に利用する
+export const extractRandomImages = (
+  lgtmImages: LgtmImage[],
+  numberToExtract: number,
+): LgtmImage[] => {
+  const copiedLgtmImages = [...lgtmImages];
+  const result = [];
+
+  // eslint-disable-next-line id-length, no-magic-numbers
+  for (let i = numberToExtract; i > 0; i -= 1) {
+    // eslint-disable-next-line no-magic-numbers
+    const rand = Math.floor(Math.random() * (copiedLgtmImages.length + 1)) - 1;
+    // eslint-disable-next-line no-magic-numbers
+    result.push(...copiedLgtmImages.splice(rand, 1));
+  }
+
+  return result;
 };

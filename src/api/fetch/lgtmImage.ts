@@ -1,32 +1,27 @@
-import { LgtmImageUrl } from '@nekochans/lgtm-cat-ui';
-
-import { httpStatusCode } from '../../constants/httpStatusCode';
-import { FetchLgtmImagesError } from '../../features/errors/FetchLgtmImagesError';
-import { IsAcceptableCatImageError } from '../../features/errors/IsAcceptableCatImageError';
-import { UploadCatImageError } from '../../features/errors/UploadCatImageError';
-import { UploadCatImageSizeTooLargeError } from '../../features/errors/UploadCatImageSizeTooLargeError';
-import { UploadCatImageValidationError } from '../../features/errors/UploadCatImageValidationError';
+import { httpStatusCode } from '../../constants';
 import {
+  FetchLgtmImagesError,
+  IsAcceptableCatImageError,
+  UploadCatImageError,
+  UploadCatImageSizeTooLargeError,
+  UploadCatImageValidationError,
   isLgtmImages,
+  createFailureResult,
+  createSuccessResult,
+  fetchLgtmImagesUrl,
+  fetchLgtmImagesInRecentlyCreatedUrl,
+  isAcceptableCatImageUrl,
+  uploadCatImageUrl,
+  isUrl,
   type FetchLgtmImages,
   FetchLgtmImagesDto,
   LgtmImage,
   IsAcceptableCatImage,
   IsAcceptableCatImageResponse,
   UploadCatImage,
-} from '../../features/lgtmImage';
-import {
-  createFailureResult,
-  createSuccessResult,
-} from '../../features/result';
-import {
-  fetchLgtmImagesUrl,
-  fetchLgtmImagesInRecentlyCreatedUrl,
-  type Url,
-  isAcceptableCatImageUrl,
-  uploadCatImageUrl,
-  isUrl,
-} from '../../features/url';
+  LgtmImageUrl,
+  Url,
+} from '../../features';
 
 type FetchImageResponseBody = {
   lgtmImages: {

@@ -8,8 +8,7 @@ import {
   cognitoClientId,
   cognitoClientSecret,
 } from '../../../constants/secret';
-import { AccessToken } from '../../../features/authToken';
-import { cognitoTokenEndpointUrl } from '../../../features/url';
+import { cognitoTokenEndpointUrl, type AccessToken } from '../../../features';
 
 export type CognitoTokenResponseBody = {
   // eslint-disable-next-line camelcase

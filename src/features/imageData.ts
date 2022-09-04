@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import { LgtmImage } from '../features/lgtmImage';
+import type { LgtmImage } from './lgtmImage';
 
 export const imageData: LgtmImage[] = [
   {

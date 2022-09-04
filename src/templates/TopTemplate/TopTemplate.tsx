@@ -1,14 +1,14 @@
-import {
-  TopTemplate as OrgTopTemplate,
-  type LgtmImage,
-} from '@nekochans/lgtm-cat-ui';
+import { TopTemplate as OrgTopTemplate } from '@nekochans/lgtm-cat-ui';
 
-import { metaTagList } from '../../features/metaTag';
-import { appBaseUrl } from '../../features/url';
+import {
+  metaTagList,
+  appBaseUrl,
+  type Language,
+  LgtmImage,
+} from '../../features';
 import { useSaveSettingLanguage, useCatImagesFetcher } from '../../hooks';
 import { DefaultLayout } from '../../layouts';
 
-import type { Language } from '../../features/language';
 import type { FC } from 'react';
 
 const clipboardMarkdownCallback = () =>

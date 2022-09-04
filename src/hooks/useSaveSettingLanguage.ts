@@ -1,6 +1,6 @@
-import { setCookie } from '../utils/cookie';
+import { setCookie } from '../utils';
 
-import type { Language } from '../features/language';
+import type { Language } from '../features';
 
 const saveSettingLanguage = (language: Language) => {
   // 有効祈願は約1年間に設定する

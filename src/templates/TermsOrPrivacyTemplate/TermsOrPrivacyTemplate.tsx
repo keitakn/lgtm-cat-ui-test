@@ -5,11 +5,10 @@ import {
 } from '@nekochans/lgtm-cat-ui';
 
 import { MarkdownContents } from '../../components';
-import { metaTagList } from '../../features/metaTag';
+import { metaTagList, type Language } from '../../features';
 import { useSaveSettingLanguage } from '../../hooks';
 import { DefaultLayout } from '../../layouts';
 
-import type { Language } from '../../features/language';
 import type { FC } from 'react';
 
 type Props = {
