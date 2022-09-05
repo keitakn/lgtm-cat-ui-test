@@ -18,14 +18,14 @@ export const middleware = (req: NextRequest) => {
   if (localeExtractedFromCookie === 'en') {
     nextUrl.pathname = `/${localeExtractedFromCookie}${nextUrl.pathname}`;
 
-    return NextResponse.rewrite(nextUrl.href);
+    return NextResponse.rewrite(nextUrl);
   }
 
   const localeExtractedFromGeo = mightExtractLocaleFromGeo(req);
   if (localeExtractedFromGeo === 'en') {
     nextUrl.pathname = `/${localeExtractedFromGeo}${nextUrl.pathname}`;
 
-    return NextResponse.rewrite(nextUrl.href);
+    return NextResponse.rewrite(nextUrl);
   }
 
   const localeExtractedFromAcceptLanguage =
@@ -33,7 +33,7 @@ export const middleware = (req: NextRequest) => {
   if (localeExtractedFromAcceptLanguage === 'en') {
     nextUrl.pathname = `/${localeExtractedFromAcceptLanguage}${nextUrl.pathname}`;
 
-    return NextResponse.rewrite(nextUrl.href);
+    return NextResponse.rewrite(nextUrl);
   }
 
   return NextResponse.next();
