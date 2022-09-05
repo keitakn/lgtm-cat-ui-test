@@ -15,14 +15,14 @@ export const middleware = (req: NextRequest) => {
   const { nextUrl } = req;
 
   const localeExtractedFromCookie = mightExtractLocaleFromCookie(req);
-  if (localeExtractedFromCookie === 'en-US') {
+  if (localeExtractedFromCookie === 'en') {
     nextUrl.pathname = `/${localeExtractedFromCookie}${nextUrl.pathname}`;
 
     return NextResponse.rewrite(nextUrl);
   }
 
   const localeExtractedFromGeo = mightExtractLocaleFromGeo(req);
-  if (localeExtractedFromGeo === 'en-US') {
+  if (localeExtractedFromGeo === 'en') {
     nextUrl.pathname = `/${localeExtractedFromGeo}${nextUrl.pathname}`;
 
     return NextResponse.rewrite(nextUrl);
@@ -30,7 +30,7 @@ export const middleware = (req: NextRequest) => {
 
   const localeExtractedFromAcceptLanguage =
     mightExtractLocaleFromAcceptLanguage(req);
-  if (localeExtractedFromAcceptLanguage === 'en-US') {
+  if (localeExtractedFromAcceptLanguage === 'en') {
     nextUrl.pathname = `/${localeExtractedFromAcceptLanguage}${nextUrl.pathname}`;
 
     return NextResponse.rewrite(nextUrl);

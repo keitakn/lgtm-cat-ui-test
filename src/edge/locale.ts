@@ -8,7 +8,7 @@ export const mightExtractLocaleFromCookie = (
   const language = req.cookies.get('language');
 
   if (language && language !== 'ja') {
-    return 'en-US';
+    return 'en';
   }
 
   return null;
@@ -18,7 +18,7 @@ export const mightExtractLocaleFromGeo = (req: NextRequest): Locale | null => {
   const country = req.geo?.country?.toLowerCase();
 
   if (country && country !== 'jp') {
-    return 'en-US';
+    return 'en';
   }
 
   return null;
@@ -31,7 +31,7 @@ export const mightExtractLocaleFromAcceptLanguage = (
   const locale = req.headers.get('accept-language')?.split(',')?.[0];
 
   if (locale && locale !== 'ja') {
-    return 'en-US';
+    return 'en';
   }
 
   return null;

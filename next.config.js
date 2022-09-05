@@ -8,8 +8,8 @@ module.exports = {
     styledComponents: true,
   },
   i18n: {
-    locales: ['ja-JP', 'en-US'],
-    defaultLocale: 'ja-JP',
+    locales: ['ja', 'en'],
+    defaultLocale: 'ja',
     localeDetection: false,
   },
 };
