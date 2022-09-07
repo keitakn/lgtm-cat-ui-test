@@ -1,4 +1,5 @@
 import 'ress/ress.css';
+import '../src/styles/markdown.css';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
 
 initialize();
