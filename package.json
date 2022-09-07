@@ -22,7 +22,7 @@
     "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
-    "@nekochans/lgtm-cat-ui": "^0.17.0",
+    "@nekochans/lgtm-cat-ui": "^0.17.2",
     "next": "^12.2.5",
     "nookies": "^2.5.2",
     "react": "^18.2.0",
@@ -73,7 +73,7 @@
     "postcss-jsx": "^0.36.4",
     "postcss-syntax": "^0.36.2",
     "prettier": "^2.7.1",
-    "storybook-addon-next": "^1.6.7",
+    "storybook-addon-next": "^1.6.9",
     "stylelint": "14.11.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recess-order": "^3.0.0",
