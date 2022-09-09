@@ -10,9 +10,20 @@ import type { NextPage, NextPageContext } from 'next';
 type Props = ErrorProps & {
   language: Language;
   statusCode: HttpStatusCode;
+  err?: Error;
+  hasGetInitialPropsRun?: boolean;
 };
 
-const CustomErrorPage: NextPage<Props> = ({ language, statusCode }) => {
+const CustomErrorPage: NextPage<Props> = ({
+  language,
+  statusCode,
+  err,
+  hasGetInitialPropsRun,
+}) => {
+  if (!hasGetInitialPropsRun && err) {
+    Sentry.captureException(err);
+  }
+
   // eslint-disable-next-line
   console.log(`ステータスは ${statusCode}  言語は${language}`);
   if (statusCode === httpStatusCode.notFound) {
@@ -31,18 +42,37 @@ const CustomErrorPage: NextPage<Props> = ({ language, statusCode }) => {
   );
 };
 
+const defaultTimeout = 2000;
+
+// eslint-disable-next-line max-statements
 CustomErrorPage.getInitialProps = async (
   context: NextPageContext,
 ): Promise<Props> => {
-  await Sentry.captureUnderscoreErrorException(context);
-
-  const { locale } = context;
-
   const errorInitialProps = NextErrorComponent.getInitialProps(
     context,
   ) as Props;
 
+  const { res, err, asPath, locale } = context;
+
+  errorInitialProps.hasGetInitialPropsRun = true;
   errorInitialProps.language = convertLocaleToLanguage(locale);
+
+  if (res?.statusCode === httpStatusCode.notFound) {
+    return errorInitialProps;
+  }
+
+  if (err) {
+    Sentry.captureException(err);
+
+    await Sentry.flush(defaultTimeout);
+
+    return errorInitialProps;
+  }
+
+  Sentry.captureException(
+    new Error(`_error.tsx getInitialProps missing data at path: ${asPath}`),
+  );
+  await Sentry.flush(defaultTimeout);
 
   return errorInitialProps;
 };
