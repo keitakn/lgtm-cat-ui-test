@@ -22,8 +22,8 @@
     "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
-    "@nekochans/lgtm-cat-ui": "^0.17.2",
-    "next": "^12.2.5",
+    "@nekochans/lgtm-cat-ui": "^0.18.0",
+    "next": "^12.3.0",
     "nookies": "^2.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -50,11 +50,11 @@
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
     "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5",
+    "eslint-config-next": "12.3.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^27.0.1",
+    "eslint-plugin-jest": "^27.0.2",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-n": "^15.2.5",
     "eslint-plugin-node": "^11.1.0",
@@ -81,7 +81,7 @@
     "stylelint-config-standard": "^28.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "ts-jest": "^28.0.8",
-    "typescript": "4.8.2",
+    "typescript": "4.8.3",
     "webpack": "^5.74.0",
     "whatwg-fetch": "^3.6.2"
   },

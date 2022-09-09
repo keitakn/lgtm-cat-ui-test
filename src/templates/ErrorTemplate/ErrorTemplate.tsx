@@ -3,6 +3,11 @@ import {
   type ErrorType,
 } from '@nekochans/lgtm-cat-ui';
 
+import {
+  InternalServerErrorImage,
+  NotFoundImage,
+  ServiceUnavailableImage,
+} from '../../components';
 import { httpStatusCode } from '../../constants';
 import {
   custom404title,
@@ -13,10 +18,6 @@ import {
 import { useSaveSettingLanguage } from '../../hooks';
 import { ErrorLayout } from '../../layouts';
 import { assertNever } from '../../utils';
-
-import { InternalServerErrorImage } from './InternalServerErrorImage';
-import { NotFoundImage } from './NotFoundImage';
-import { ServiceUnavailableImage } from './ServiceUnavailableImage';
 
 import type { FC } from 'react';
 
@@ -60,6 +61,7 @@ export const ErrorTemplate: FC<Props> = ({ type, language }) => {
         type={type}
         language={language}
         catImage={catImage(type)}
+        shouldDisplayBackToTopButton={true}
         changeLanguageCallback={saveSettingLanguage}
       />
     </ErrorLayout>

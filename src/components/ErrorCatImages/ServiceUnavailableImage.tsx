@@ -2,7 +2,9 @@ import Image from 'next/image';
 
 import serviceUnavailable from './images/service_unavailable.webp';
 
-export const ServiceUnavailableImage = () => (
+import type { FC } from 'react';
+
+export const ServiceUnavailableImage: FC = () => (
   <Image
     src={serviceUnavailable.src}
     layout="fill"
