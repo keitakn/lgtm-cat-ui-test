@@ -22,6 +22,7 @@ import {
   LgtmImageUrl,
   Url,
 } from '../../features';
+import { mightSetRequestIdToSentry } from '../../utils';
 
 type FetchImageResponseBody = {
   lgtmImages: {
@@ -61,6 +62,7 @@ const isFetchImageResponseBody = (
   return false;
 };
 
+// eslint-disable-next-line max-statements
 const fetchLgtmImages = async (
   dto: FetchLgtmImagesDto,
   fetchUrl: Url,
@@ -76,6 +78,8 @@ const fetchLgtmImages = async (
 
   const response = await fetch(fetchUrl, options);
   if (!response.ok) {
+    await mightSetRequestIdToSentry(response);
+
     throw new FetchLgtmImagesError(response.statusText);
   }
 
@@ -125,6 +129,8 @@ export const isAcceptableCatImage: IsAcceptableCatImage = async (dto) => {
         new UploadCatImageSizeTooLargeError(),
       );
     }
+
+    await mightSetRequestIdToSentry(response);
 
     throw new IsAcceptableCatImageError(response.statusText);
   }
@@ -184,7 +190,8 @@ export const uploadCatImage: UploadCatImage = async (dto) => {
           new UploadCatImageValidationError(),
         );
       default:
-        // TODO ここに入ったらSentryに通知を行う
+        await mightSetRequestIdToSentry(response);
+
         throw new UploadCatImageError(response.statusText);
     }
   }
@@ -197,6 +204,7 @@ export const uploadCatImage: UploadCatImage = async (dto) => {
     });
   }
 
-  // TODO ここに入ったらSentryに通知を行う
+  await mightSetRequestIdToSentry(response);
+
   throw new UploadCatImageError(response.statusText);
 };
