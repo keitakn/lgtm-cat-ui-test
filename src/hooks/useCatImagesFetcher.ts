@@ -15,6 +15,8 @@ const randomCatImagesFetcher = async (): Promise<LgtmImage[]> => {
 const newArrivalCatImagesFetcher = async (): Promise<LgtmImage[]> => {
   const accessToken = await issueAccessToken();
 
+  throw new Error('newArrivalCatImagesFetcher Error!!!!');
+
   return fetchLgtmImagesInRecentlyCreated({ accessToken });
 };
 

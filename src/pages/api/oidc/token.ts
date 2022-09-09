@@ -1,13 +1,12 @@
+import { withSentry } from '@sentry/nextjs';
 import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 
 import {
-  HttpStatusCode,
-  httpStatusCode,
-} from '../../../constants/httpStatusCode';
-import {
   cognitoClientId,
   cognitoClientSecret,
-} from '../../../constants/secret';
+  httpStatusCode,
+  type HttpStatusCode,
+} from '../../../constants';
 import { cognitoTokenEndpointUrl, type AccessToken } from '../../../features';
 
 export type CognitoTokenResponseBody = {
@@ -96,4 +95,4 @@ const handler: NextApiHandler = async (
   }
 };
 
-export default handler;
+export default withSentry(handler);

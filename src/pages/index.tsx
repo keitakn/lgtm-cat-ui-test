@@ -1,5 +1,4 @@
-import { issueAccessTokenOnServer } from '../api/fetch/authToken';
-import { fetchLgtmImagesInRandom } from '../api/fetch/lgtmImage';
+import { issueAccessTokenOnServer, fetchLgtmImagesInRandom } from '../api';
 import {
   convertLocaleToLanguage,
   extractRandomImages,
