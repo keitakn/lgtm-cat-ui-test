@@ -1,5 +1,6 @@
 import { TopTemplate as OrgTopTemplate } from '@nekochans/lgtm-cat-ui';
 
+import { InternalServerErrorImage } from '../../components';
 import {
   metaTagList,
   appBaseUrl,
@@ -43,6 +44,7 @@ export const TopTemplate: FC<Props> = ({ language, lgtmImages }) => {
         lgtmImages={lgtmImages}
         randomCatImagesFetcher={randomCatImagesFetcher}
         newArrivalCatImagesFetcher={newArrivalCatImagesFetcher}
+        errorCatImage={<InternalServerErrorImage />}
         appUrl={appBaseUrl()}
         fetchRandomCatImagesCallback={fetchRandomCatImagesCallback}
         fetchNewArrivalCatImagesCallback={fetchNewArrivalCatImagesCallback}

@@ -2,7 +2,9 @@ import Image from 'next/image';
 
 import internalServerError from './images/internal_server_error.webp';
 
-export const InternalServerErrorImage = () => (
+import type { FC } from 'react';
+
+export const InternalServerErrorImage: FC = () => (
   <Image
     src={internalServerError.src}
     layout="fill"
