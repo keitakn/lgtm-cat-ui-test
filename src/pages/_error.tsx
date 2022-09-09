@@ -12,14 +12,22 @@ type Props = ErrorProps & {
   statusCode: HttpStatusCode;
 };
 
-const CustomErrorPage: NextPage<Props> = ({ language, statusCode }) => (
-  <NextErrorComponent statusCode={statusCode}>
+const CustomErrorPage: NextPage<Props> = ({ language, statusCode }) => {
+  if (statusCode === httpStatusCode.notFound) {
+    return <ErrorTemplate type={statusCode} language={language} />;
+  }
+
+  if (statusCode === httpStatusCode.serviceUnavailable) {
+    return <ErrorTemplate type={statusCode} language={language} />;
+  }
+
+  return (
     <ErrorTemplate
       type={httpStatusCode.internalServerError}
       language={language}
     />
-  </NextErrorComponent>
-);
+  );
+};
 
 CustomErrorPage.getInitialProps = async (
   context: NextPageContext,
