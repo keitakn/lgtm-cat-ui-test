@@ -13,6 +13,8 @@ type Props = ErrorProps & {
 };
 
 const CustomErrorPage: NextPage<Props> = ({ language, statusCode }) => {
+  // eslint-disable-next-line
+  console.log(`ステータスは ${statusCode}  言語は${language}`);
   if (statusCode === httpStatusCode.notFound) {
     return <ErrorTemplate type={statusCode} language={language} />;
   }
