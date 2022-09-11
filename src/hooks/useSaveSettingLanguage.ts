@@ -1,4 +1,9 @@
-import { setCookie } from '../utils';
+import {
+  assertNever,
+  sendClickLanguageMenuEnButton,
+  sendClickLanguageMenuJaButton,
+  setCookie,
+} from '../utils';
 
 import type { Language } from '../features';
 
@@ -8,6 +13,17 @@ const saveSettingLanguage = (language: Language) => {
   const maxAge = 365 * 24 * 60 * 60;
 
   setCookie('language', language, maxAge);
+
+  switch (language) {
+    case 'en':
+      sendClickLanguageMenuEnButton();
+      break;
+    case 'ja':
+      sendClickLanguageMenuJaButton();
+      break;
+    default:
+      assertNever(language);
+  }
 };
 
 export const useSaveSettingLanguage = () => ({ saveSettingLanguage });

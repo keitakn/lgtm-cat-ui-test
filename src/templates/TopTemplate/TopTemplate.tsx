@@ -9,20 +9,19 @@ import {
 } from '../../features';
 import { useSaveSettingLanguage, useCatImagesFetcher } from '../../hooks';
 import { DefaultLayout } from '../../layouts';
+import {
+  sendClickTopFetchNewArrivalCatButton,
+  sendClickTopFetchRandomCatButton,
+  sendCopyMarkdownFromTopImages,
+} from '../../utils';
 
 import type { FC } from 'react';
 
-const clipboardMarkdownCallback = () =>
-  // eslint-disable-next-line no-console
-  console.log('clipboardMarkdownCallback executed!');
+const clipboardMarkdownCallback = sendCopyMarkdownFromTopImages;
 
-const fetchRandomCatImagesCallback = () =>
-  // eslint-disable-next-line no-console
-  console.log('fetchRandomCatImagesCallback executed!');
+const fetchRandomCatImagesCallback = sendClickTopFetchRandomCatButton;
 
-const fetchNewArrivalCatImagesCallback = () =>
-  // eslint-disable-next-line no-console
-  console.log('fetchNewArrivalCatImagesCallback executed!');
+const fetchNewArrivalCatImagesCallback = sendClickTopFetchNewArrivalCatButton;
 
 type Props = {
   language: Language;
