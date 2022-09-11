@@ -22,7 +22,7 @@
     "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
-    "@nekochans/lgtm-cat-ui": "^0.18.1",
+    "@nekochans/lgtm-cat-ui": "^0.18.3",
     "@sentry/nextjs": "^7.12.1",
     "next": "^12.3.0",
     "nookies": "^2.5.2",
@@ -44,7 +44,7 @@
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/react": "^13.4.0",
     "@testing-library/react-hooks": "^8.0.1",
-    "@types/jest": "^29.0.0",
+    "@types/jest": "^29.0.1",
     "@types/prettier": "^2.7.0",
     "@types/react": "18.0.19",
     "@types/styled-components": "^5.1.26",
