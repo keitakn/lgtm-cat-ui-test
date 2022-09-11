@@ -8,6 +8,11 @@ import {
   useCatImageUploader,
 } from '../../hooks';
 import { DefaultLayout } from '../../layouts';
+import {
+  sendUploadedCatImage,
+  sendCopyMarkdownFromCreatedImage,
+  sendCopyMarkdownFromCopyButton,
+} from '../../utils';
 
 import cat from './images/cat.webp';
 
@@ -38,6 +43,9 @@ export const UploadTemplate: FC<Props> = ({ language }) => {
         imageUploader={imageUploader}
         catImage={<CatImage />}
         changeLanguageCallback={saveSettingLanguage}
+        uploadCallback={sendUploadedCatImage}
+        onClickCreatedLgtmImage={sendCopyMarkdownFromCreatedImage}
+        onClickMarkdownSourceCopyButton={sendCopyMarkdownFromCopyButton}
       />
     </DefaultLayout>
   );
