@@ -22,7 +22,7 @@
     "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
-    "@nekochans/lgtm-cat-ui": "^0.18.3",
+    "@nekochans/lgtm-cat-ui": "^1.0.1",
     "@sentry/nextjs": "^7.12.1",
     "lodash.throttle": "^4.1.1",
     "next": "^12.3.0",
@@ -52,7 +52,7 @@
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
-    "eslint": "8.23.0",
+    "eslint": "8.23.1",
     "eslint-config-next": "12.3.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
