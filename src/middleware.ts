@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import {
+  isBanCountry,
   isInMaintenance,
   mightExtractLocaleFromAcceptLanguage,
   mightExtractLocaleFromCookie,
@@ -72,6 +73,14 @@ const exec = (req: NextRequest) => {
 };
 
 export const middleware = (req: NextRequest) => {
+  if (isBanCountry(req)) {
+    const { nextUrl } = req;
+
+    nextUrl.pathname = '/api/errors';
+
+    return NextResponse.rewrite(nextUrl);
+  }
+
   if (isInMaintenance()) {
     return execInMaintenance(req);
   }
