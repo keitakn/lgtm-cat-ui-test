@@ -1,7 +1,7 @@
 import { UploadTemplate as OrgUploadTemplate } from '@nekochans/lgtm-cat-ui';
 import Image from 'next/image';
 
-import { metaTagList, type Language } from '../../features';
+import { metaTagList, appBaseUrl, type Language } from '../../features';
 import {
   useSaveSettingLanguage,
   useCatImageValidator,
@@ -46,6 +46,7 @@ export const UploadTemplate: FC<Props> = ({ language }) => {
         uploadCallback={sendUploadedCatImage}
         onClickCreatedLgtmImage={sendCopyMarkdownFromCreatedImage}
         onClickMarkdownSourceCopyButton={sendCopyMarkdownFromCopyButton}
+        appUrl={appBaseUrl()}
       />
     </DefaultLayout>
   );
