@@ -6,4 +6,3 @@ export * from './locale';
 export * from './metaTag';
 export * from './result';
 export * from './url';
-export * from './imageData';

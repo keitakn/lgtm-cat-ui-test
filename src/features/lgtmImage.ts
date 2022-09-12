@@ -3,6 +3,7 @@ import {
   UploadCatImageSizeTooLargeError,
   UploadCatImageValidationError,
 } from './errors';
+import { imageData } from './imageData';
 
 import type { AccessToken } from './authToken';
 import type { Result } from './result';
@@ -84,11 +85,8 @@ export const isLgtmImages = (value: unknown): value is LgtmImage[] => {
 };
 
 // APIに障害が発生している場合に利用する
-export const extractRandomImages = (
-  lgtmImages: LgtmImage[],
-  numberToExtract: number,
-): LgtmImage[] => {
-  const copiedLgtmImages = [...lgtmImages];
+export const extractRandomImages = (numberToExtract: number): LgtmImage[] => {
+  const copiedLgtmImages = [...imageData];
   const result = [];
 
   // eslint-disable-next-line id-length, no-magic-numbers

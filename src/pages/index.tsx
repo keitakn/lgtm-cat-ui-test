@@ -2,7 +2,6 @@ import { issueAccessTokenOnServer, fetchLgtmImagesInRandom } from '../api';
 import {
   convertLocaleToLanguage,
   extractRandomImages,
-  imageData,
   type Language,
   LgtmImage,
 } from '../features';
@@ -36,11 +35,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
       revalidate,
     };
   } catch (error) {
-    // TODO ここに到達した場合、APIでエラーが起きているので通知を送るようにしたい
     // APIから取得に失敗した場合は静的ファイルに記載されたデータを取得する
     // 理由としてはエラー表示がCacheされる事を避ける為
     const imageLength = 9;
-    const lgtmImages = extractRandomImages(imageData, imageLength);
+    const lgtmImages = extractRandomImages(imageLength);
 
     return {
       props: { language, lgtmImages },
