@@ -1,4 +1,4 @@
-import { httpStatusCode } from '../constants/httpStatusCode';
+import { httpStatusCode } from '../constants';
 import { convertLocaleToLanguage, type Language } from '../features';
 import { ErrorTemplate } from '../templates';
 
