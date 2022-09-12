@@ -13,6 +13,8 @@ import {
   custom404title,
   customErrorTitle,
   metaTagList,
+  notFoundMetaTag,
+  errorMetaTag,
   type Language,
 } from '../../features';
 import { useSaveSettingLanguage } from '../../hooks';
@@ -52,11 +54,26 @@ const pageTitle = (type: ErrorType, language: Language) => {
   }
 };
 
+const getMetaTag = (type: ErrorType, language: Language) => {
+  switch (type) {
+    case httpStatusCode.notFound:
+      return notFoundMetaTag(language);
+    case httpStatusCode.internalServerError:
+      return errorMetaTag(language);
+    case httpStatusCode.serviceUnavailable:
+      return metaTagList(language).maintenance;
+    default:
+      return assertNever(type);
+  }
+};
+
 export const ErrorTemplate: FC<Props> = ({ type, language }) => {
   const { saveSettingLanguage } = useSaveSettingLanguage();
 
+  const metaTag = getMetaTag(type, language);
+
   return (
-    <ErrorLayout title={pageTitle(type, language)}>
+    <ErrorLayout title={pageTitle(type, language)} metaTag={metaTag}>
       <OrgErrorTemplate
         type={type}
         language={language}
