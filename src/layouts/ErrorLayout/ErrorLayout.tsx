@@ -41,7 +41,8 @@ export const ErrorLayout: FC<Props> = ({ title, children, metaTag }) => (
       />
       <link rel="manifest" href="/favicons/site.webmanifest" />
       <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#ffffff" />{' '}
+      <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
+      <meta name="theme-color" content="#ffffff" />
     </Head>
     {children}
   </>

@@ -40,6 +40,7 @@ export const DefaultLayout: FC<Props> = ({ metaTag, children }) => (
       />
       <link rel="manifest" href="/favicons/site.webmanifest" />
       <meta name="msapplication-TileColor" content="#da532c" />
+      <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
       <meta name="theme-color" content="#ffffff" />
     </Head>
     {children}
