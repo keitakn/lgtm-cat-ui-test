@@ -24,6 +24,7 @@
   "dependencies": {
     "@nekochans/lgtm-cat-ui": "^0.18.3",
     "@sentry/nextjs": "^7.12.1",
+    "lodash.throttle": "^4.1.1",
     "next": "^12.3.0",
     "nookies": "^2.5.2",
     "react": "^18.2.0",
@@ -45,6 +46,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/jest": "^29.0.1",
+    "@types/lodash.throttle": "^4.1.7",
     "@types/prettier": "^2.7.0",
     "@types/react": "18.0.19",
     "@types/styled-components": "^5.1.26",

@@ -1,3 +1,5 @@
+import throttle from 'lodash/throttle';
+
 import {
   issueAccessToken,
   fetchLgtmImagesInRandom,
@@ -18,7 +20,15 @@ const newArrivalCatImagesFetcher = async (): Promise<LgtmImage[]> => {
   return fetchLgtmImagesInRecentlyCreated({ accessToken });
 };
 
+const limitThreshold = 1000;
+
 export const useCatImagesFetcher = () => ({
-  randomCatImagesFetcher,
-  newArrivalCatImagesFetcher,
+  randomCatImagesFetcher: throttle<typeof randomCatImagesFetcher>(
+    () => randomCatImagesFetcher(),
+    limitThreshold,
+  ) as typeof randomCatImagesFetcher,
+  newArrivalCatImagesFetcher: throttle<typeof newArrivalCatImagesFetcher>(
+    () => newArrivalCatImagesFetcher(),
+    limitThreshold,
+  ) as typeof newArrivalCatImagesFetcher,
 });
