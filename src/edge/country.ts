@@ -32,6 +32,7 @@ const bannedCountryCodeList = [
   'SK',
   'FI',
   'SE',
+  'JP',
 ];
 
 export const isBanCountry = (req: NextRequest) => {
